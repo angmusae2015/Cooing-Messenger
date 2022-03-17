@@ -1,7 +1,7 @@
 from openpyxl import load_workbook
 
 
-wb = load_workbook('책배송-일지.xlsx', data_only=True)
+wb = load_workbook('target/책배송-일지.xlsx', data_only=True)
 
 
 class BookInfo:

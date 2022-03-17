@@ -1,3 +1,6 @@
 venv
 env
 token.txt
+.DS_STORE
+source/__pycache__
+.idea
