@@ -30,7 +30,7 @@ class dropdown:
 class tab:
     def __init__(self):
         self.selected_sheet = None
-        self.selected_date = None
+        self.selected_date = None   # selected date(merged cell range)
 
     def select_sheet(self):
         dd = dropdown()
@@ -52,11 +52,16 @@ class tab:
         dd = dropdown()
         for dateCell in departureDateCells:
             date = dateCell.start_cell
-            dd.add_menus(f"{date.value.year}-{date.value.month}-{date.value.day}", date.value.date)
+            dd.add_menus(f"{date.value.year}-{date.value.month}-{date.value.day}", dateCell)
         dd.select()
         self.selected_date = dd.selectedMenu.value
+
+    def get_schedule(self):
+        for i in range(self.selected_date.min_row, self.selected_date.max_row + 1):
+            print(self.selected_sheet[f'E{i}'].value)
 
 
 t = tab()
 t.select_sheet()
 t.select_date()
+t.get_schedule()
