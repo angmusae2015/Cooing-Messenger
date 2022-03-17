@@ -4,10 +4,17 @@ from openpyxl import load_workbook
 wb = load_workbook('책배송-일지.xlsx', data_only=True)
 
 
+class BookInfo:
+    def __init__(self, original_text):
+        self.original_text = original_text  # text that was in Excel file(str)
+        self.seriesName = None  # real name of series(str)
+        self.bookList = []  # list of number of book([str])
+
+
 class DropDown:
     def __init__(self):
-        self.menus = []     # list of menus(dropdown.menu)
-        self.selectedMenu = None    # selected menu(dropdown.menu)
+        self.menus = []     # list of menus([DropDown.Menu])
+        self.selectedMenu = None    # selected menu(DropDown.Menu)
 
     def add_menus(self, title, value):  # add menus
         self.menus.append(self.Menu(title, value))
@@ -29,8 +36,9 @@ class DropDown:
 
 class Tab:
     def __init__(self):
-        self.selected_sheet = None
+        self.selected_sheet = None  # selected sheet(WorkSheet)
         self.selected_date = None   # selected date(MergedCellRange)
+        self.schedule = {}  # schedules on selected date({child number(str) : book code(str)})
 
     def select_sheet(self):     # select sheet
         dd = DropDown()
@@ -58,7 +66,7 @@ class Tab:
 
     def get_schedule(self):
         for i in range(self.selected_date.min_row, self.selected_date.max_row + 1):
-            print(self.selected_sheet[f'E{i}'].value)
+            self.schedule[self.selected_sheet[f'D{i}'].value] = self.selected_sheet[f'H{i}'].value
 
 
 t = Tab()
