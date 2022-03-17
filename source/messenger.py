@@ -4,13 +4,13 @@ from openpyxl import load_workbook
 wb = load_workbook('책배송-일지.xlsx', data_only=True)
 
 
-class dropdown:
+class DropDown:
     def __init__(self):
         self.menus = []     # list of menus(dropdown.menu)
         self.selectedMenu = None    # selected menu(dropdown.menu)
 
     def add_menus(self, title, value):  # add menus
-        self.menus.append(self.menu(title, value))
+        self.menus.append(self.Menu(title, value))
 
     def select(self):   # ask which menu user will select
         print("Type index")
@@ -21,36 +21,36 @@ class dropdown:
         self.selectedMenu = self.menus[index-1]
         print(f"You've selected {self.selectedMenu.title}")
 
-    class menu:     # menu has two attributes: title(str), value
+    class Menu:     # Menu has two attributes: title(str), value
         def __init__(self, title, value):
             self.title = title  # title is a string that will be shown to user
             self.value = value  # value is a real data of menu
 
 
-class tab:
+class Tab:
     def __init__(self):
         self.selected_sheet = None
         self.selected_date = None   # selected date(MergedCellRange)
 
     def select_sheet(self):     # select sheet
-        dd = dropdown()
+        dd = DropDown()
         for sheet in wb.worksheets:
             dd.add_menus(sheet.title, sheet)
         dd.select()
         self.selected_sheet = dd.selectedMenu.value
 
     def get_departure_date(self):   # return every merged date cell's ranges(list of MergedCellRanges)
-        departureDateCells = []
+        departure_date_cells = []
         for mergedCell in self.selected_sheet.merged_cells.ranges:
             if mergedCell.start_cell.column == 1:
-                departureDateCells.append(mergedCell)
+                departure_date_cells.append(mergedCell)
 
-        return departureDateCells
+        return departure_date_cells
 
     def select_date(self):  # select merged date cell's range(MergedCellRange)
-        departureDateCells = self.get_departure_date()
-        dd = dropdown()
-        for dateCell in departureDateCells:
+        departure_date_cells = self.get_departure_date()
+        dd = DropDown()
+        for dateCell in departure_date_cells:
             date = dateCell.start_cell
             dd.add_menus(f"{date.value.year}-{date.value.month}-{date.value.day}", dateCell)
         dd.select()
@@ -61,7 +61,7 @@ class tab:
             print(self.selected_sheet[f'E{i}'].value)
 
 
-t = tab()
+t = Tab()
 t.select_sheet()
 t.select_date()
 t.get_schedule()
