@@ -4,9 +4,73 @@ import csv
 
 
 wb = load_workbook('target/책배송-일지.xlsx', data_only=True)
+book_info = open("data/BookList.csv", 'r')
+series_info = open("data/SeriesList.csv", 'r')
 
 
-class Book:
+class Series:   # class about series information
+    def __init__(self, code):   # this requires code of the series
+        self.code = code    # series code
+        self.name = None    # series name
+        self.step = None    # step of this series
+
+        self.load_series_info()
+
+    def load_series_info(self):     # load series info by code
+        for line in csv.reader(series_info):
+            if line[0] == self.code:
+                self.step = line[1]
+                self.name = line[2]
+
+                return 0
+
+        raise self.SeriesNotFoundError  # raise this when series with given code is not found
+
+    class SeriesNotFoundError(Exception):
+        def __str__(self):
+            return "Could not found the given series."
+
+
+class Book:     # class about book information
+    def __init__(self, code, num=None, name=None):  # this requires code of series, and either number or a name.
+        if num or name is None:
+            raise self.NotEnoughInfoError   # raise this when both number and name is not given.
+
+        self.series = Series(code)  # series of this book
+        self.num = num  # number of this book
+        self.name = name    # name of this book
+
+        self.load_book_info()
+
+    def load_book_info(self):   # load book info by series code and number or name
+        for line in csv.reader(book_info):
+            if line[0] == self.series.code:
+                self.series = Series(line[0])
+
+                if self.num is not None:     # search book with number
+                    if line[1] == self.num:
+                        self.name = line[2]
+
+                        return 0
+
+                elif self.name is not None:  # search book with name
+                    if line[2] == self.name:
+                        self.num = line[1]
+
+                        return 0
+
+        raise self.BookNotFoundError    # raise this when book with given information is not found.
+
+    class NotEnoughInfoError(Exception):
+        def __str__(self):
+            return "Either name or number is required."
+
+    class BookNotFoundError(Exception):
+        def __str__(self):
+            return "Could not found the given book."
+
+
+class BookSchedule:
     def __init__(self, original_text):
         self.rex = {
             'series': re.compile('\w+'),  # finds series code (ex: JB, HR3)
@@ -16,13 +80,11 @@ class Book:
         self.original_text = original_text  # original text that is split by '+' from Excel file([str])
         # original text is like this: CH[3-2](1~2,5,8)
 
-        self.series_code = None  # code of series(str)
-        self.series_name = None  # name of series(str)
         self.step = None    # step of current series(float)
         self.book_list = []  # list of number of book([str])
 
     def parse_text(self):
-        self.series_code = self.rex['series'].search(self.original_text)[0]     # parse name of series
+        code = self.rex['series'].search(self.original_text)[0]
 
         step_text = self.rex['step'].search(self.original_text)[0].strip('[]')     # parse step of series
         if step_text is not None:
