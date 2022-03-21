@@ -1,30 +1,30 @@
 from openpyxl import load_workbook
+import pandas as pd
 import re
-import csv
 
 
 wb = load_workbook('target/책배송-일지.xlsx', data_only=True)
-book_info = open("data/BookList.csv", 'r')
-series_info = open("data/SeriesList.csv", 'r')
+book_info = "data/BookList.csv"
+series_info = "data/SeriesList.csv"
+
+book_data = pd.read_csv(book_info)
+series_data = pd.read_csv(series_info)
 
 
 class Series:   # class about series information
     def __init__(self, code):   # this requires code of the series
-        self.code = code    # series code
+        self.code = None    # series code
         self.name = None    # series name
         self.step = None    # step of this series
 
-        self.load_series_info()
+        self.load_series_info(code)
 
-    def load_series_info(self):     # load series info by code
-        for line in csv.reader(series_info):
-            if line[0] == self.code:
-                self.step = line[1]
-                self.name = line[2]
+    def load_series_info(self, code):     # load series info by code
+        try:
+            self.code, self.name, self.step = series_data.query(f'Code=="{code}"').iloc[0].to_list()
 
-                return 0
-
-        raise self.SeriesNotFoundError  # raise this when series with given code is not found
+        except IndexError:
+            raise self.SeriesNotFoundError
 
     class SeriesNotFoundError(Exception):
         def __str__(self):
@@ -33,34 +33,23 @@ class Series:   # class about series information
 
 class Book:     # class about book information
     def __init__(self, code, num=None, name=None):  # this requires code of series, and either number or a name.
-        if num or name is None:
+        if (num or name) is None:
             raise self.NotEnoughInfoError   # raise this when both number and name is not given.
 
-        self.series = Series(code)  # series of this book
-        self.num = num  # number of this book
-        self.name = name    # name of this book
+        self.series = Series(code)  # series of this book(Series)
 
-        self.load_book_info()
+        self.num = num  # number of this book(str)
 
+        self.name = name    # name of this book(str)
+
+        # self.load_book_info()
+
+    """
     def load_book_info(self):   # load book info by series code and number or name
-        for line in csv.reader(book_info):
-            if line[0] == self.series.code:
-                self.series = Series(line[0])
-
-                if self.num is not None:     # search book with number
-                    if line[1] == self.num:
-                        self.name = line[2]
-
-                        return 0
-
-                elif self.name is not None:  # search book with name
-                    if line[2] == self.name:
-                        self.num = line[1]
-
-                        return 0
+        
 
         raise self.BookNotFoundError    # raise this when book with given information is not found.
-
+    """
     class NotEnoughInfoError(Exception):
         def __str__(self):
             return "Either name or number is required."
@@ -77,24 +66,35 @@ class BookSchedule:
             'step': re.compile('\[.+\]'),  # finds step (ex: [3], [2-1])
             'book list': re.compile('\(.+\)')  # finds book list (ex: (1~4), (1~2,5,7))
         }
-        self.original_text = original_text  # original text that is split by '+' from Excel file([str])
-        # original text is like this: CH[3-2](1~2,5,8)
+        # self.step = None    # step of current series(float)
+        self.book_list = []  # list of number of book([book])
 
-        self.step = None    # step of current series(float)
-        self.book_list = []  # list of number of book([str])
+        self.parse_text(original_text)
 
-    def parse_text(self):
-        code = self.rex['series'].search(self.original_text)[0]
+    def parse_text(self, original_text):    # parse schedule text
+        for seriesSet in original_text.split('+'):  # split by series
+            code = self.rex['series'].search(seriesSet)[0]
 
-        step_text = self.rex['step'].search(self.original_text)[0].strip('[]')     # parse step of series
-        if step_text is not None:
-            self.step = float(step_text[0])
-            if len(step_text) > 1:      # add half step(ex: 2-1 step is counted as 2.5 step)
-                self.step = float(step_text[0]) + 0.5
+            """
+            step_text = self.rex['step'].search(original_text)[0].strip('[]')  # parse step of series
+            if step_text is not None:
+                if len(step_text.split('-')) > 1:
+                    self.step = tuple([int(i) for i in step_text.split('-')])
+                else:
+                    self.step = (int(step_text), 0)
+            """
 
-        book_list_text = self.rex['book list'].search(self.original_text)[0].strip('()')    # parse list of books
-        for book_range in book_list_text.split(','):
-            start, end = book_range.split('~')
+            book_list_text = self.rex['book list'].search(seriesSet)[0].strip('()')
+            for book_range in book_list_text.split(','):
+                if "~" in book_range:
+                    start, end = [book_data.query(f'Series=="{code}"&Num=="{num}"').index[0] for num in book_range.split('~')]
+                else:
+                    start = book_data.query(f'Series=="{code}"&Num=="{book_range}"').index[0]
+                    end = start
+
+                for i in range(start, end + 1):
+                    num, name = book_data.iloc[i]['Num':'Name'].to_list()
+                    self.book_list.append(Book(code, num, name))
 
 
 class DropDown:
@@ -155,7 +155,14 @@ class Tab:
             self.schedule[self.selected_sheet[f'D{i}'].value] = self.selected_sheet[f'H{i}'].value
 
 
+"""
 t = Tab()
 t.select_sheet()
 t.select_date()
 t.get_schedule()
+"""
+
+text = "RK[2](1-1~1-2,2-3~2-8)"
+sch = BookSchedule(text)
+for book in sch.book_list:
+    print(book.name)
