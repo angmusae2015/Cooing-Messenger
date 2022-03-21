@@ -28,28 +28,29 @@ class Series:   # class about series information
 
     class SeriesNotFoundError(Exception):
         def __str__(self):
-            return "Could not found the given series."
+            return "Could not found the given series"
 
 
-class Book:     # class about book information
+class Book:  # class about book information
     def __init__(self, code, num=None, name=None):  # this requires code of series, and either number or a name.
         if (num or name) is None:
-            raise self.NotEnoughInfoError   # raise this when both number and name is not given.
+            raise self.NotEnoughInfoError  # raise this when both number and name is not given.
 
         self.series = Series(code)  # series of this book(Series)
 
         self.num = num  # number of this book(str)
 
-        self.name = name    # name of this book(str)
+        self.name = name  # name of this book(str)
 
         # self.load_book_info()
 
     """
     def load_book_info(self):   # load book info by series code and number or name
-        
+
 
         raise self.BookNotFoundError    # raise this when book with given information is not found.
     """
+
     class NotEnoughInfoError(Exception):
         def __str__(self):
             return "Either name or number is required."
@@ -71,7 +72,7 @@ class BookSchedule:
 
         self.parse_text(original_text)
 
-    def parse_text(self, original_text):    # parse schedule text
+    def parse_text(self, original_text):  # parse schedule text
         for seriesSet in original_text.split('+'):  # split by series
             code = self.rex['series'].search(seriesSet)[0]
 
@@ -87,7 +88,8 @@ class BookSchedule:
             book_list_text = self.rex['book list'].search(seriesSet)[0].strip('()')
             for book_range in book_list_text.split(','):
                 if "~" in book_range:
-                    start, end = [book_data.query(f'Series=="{code}"&Num=="{num}"').index[0] for num in book_range.split('~')]
+                    start, end = [book_data.query(f'Series=="{code}"&Num=="{num}"').index[0] for num in
+                                  book_range.split('~')]
                 else:
                     start = book_data.query(f'Series=="{code}"&Num=="{book_range}"').index[0]
                     end = start
@@ -155,14 +157,15 @@ class Tab:
             self.schedule[self.selected_sheet[f'D{i}'].value] = self.selected_sheet[f'H{i}'].value
 
 
-"""
-t = Tab()
-t.select_sheet()
-t.select_date()
-t.get_schedule()
-"""
+if __name__ == '__main__':
+    """
+    t = Tab()
+    t.select_sheet()
+    t.select_date()
+    t.get_schedule()
+    """
 
-text = "RK[2](1-1~1-2,2-3~2-8)"
-sch = BookSchedule(text)
-for book in sch.book_list:
-    print(book.name)
+    text = "RK[2](1-1~1-2,2-3~2-8)"
+    sch = BookSchedule(text)
+    for book in sch.book_list:
+        print(book.name)
