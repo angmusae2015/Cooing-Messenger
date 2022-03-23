@@ -5,10 +5,10 @@ import sys
 def msgConfigLayout(parent):
     layout = QGridLayout()
 
-    layout.addWidget(QLabel('발신번호 선택'), 0, 0)
+    layout.addWidget(QLabel('발신 번호 선택'), 0, 0)
 
     selectNumBox = QComboBox()
-    selectNumBox.setPlaceholderText("발신번호 선택")
+    selectNumBox.setPlaceholderText("발신 번호 선택")
     layout.addWidget(selectNumBox, 1, 0)
     layout.addWidget(QLabel('예약 시간 선택'), 0, 1)
 
@@ -21,14 +21,17 @@ def msgConfigLayout(parent):
 def fileSelectLayout(parent):
     layout = QGridLayout()
     label = QLabel("일지 파일 선택(.xlsx)")
-    layout.addWidget(label, 0, 0, 0, 2)
+    layout.addWidget(label, 0, 0, 0, 1)
+
+    space = QSpacerItem(100, 30)
+    layout.addItem(space, 1, 0, 1, 1)
 
     findButton = QPushButton("찾기", parent)
-    layout.addWidget(findButton, 1, 0)
+    layout.addWidget(findButton, 2, 0)
 
     fileNameViewer = QTextBrowser()
     fileNameViewer.setFixedHeight(findButton.height())
-    layout.addWidget(fileNameViewer, 1, 1)
+    layout.addWidget(fileNameViewer, 2, 1)
 
     return layout
 
@@ -53,7 +56,9 @@ def selectionLayout(parent):
 def msgPrevLayout(parent):
     layout = QHBoxLayout()
     layout.addLayout(selectionLayout(parent))
-    layout.addWidget(QTextBrowser())
+
+    msgPreview = QTextBrowser()
+    layout.addWidget(msgPreview)
 
     return layout
 
@@ -67,27 +72,6 @@ def scheduleTableLayout(parent):
 
 
 app = QApplication([])
-
-
-"""
-selectNumLabel = QLabel()
-selectNumLabel.setText("발신번호 선택")
-
-selectReserveTimeLabel = QLabel()
-selectReserveTimeLabel.setText("예약 시간 선택")
-
-selectNum = QComboBox()
-selectNum.setPlaceholderText("발신번호 선택")
-
-selectReserveTime = QDateTimeEdit()
-
-msgConfig = QGridLayout()
-msgConfig.addWidget(selectNumLabel, 0, 0)
-msgConfig.addWidget(selectNum, 1, 0)
-msgConfig.addWidget(selectReserveTimeLabel, 0, 1)
-msgConfig.addWidget(selectReserveTime, 1, 1)
-"""
-
 window = QWidget()
 window.setLayout(scheduleTableLayout(window))
 window.show()
