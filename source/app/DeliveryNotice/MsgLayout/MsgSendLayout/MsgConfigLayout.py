@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import *
+from PyQt5.QtCore import QDateTime
 
 
 class layout(QGridLayout):
@@ -14,9 +15,17 @@ class layout(QGridLayout):
         self.toggleReserveMsg = QCheckBox()
 
         self.dateTimeSelectBox = QDateTimeEdit()
+        self.dateTimeSelectBox.setEnabled(False)
+        self.dateTimeSelectBox.setDateTime(QDateTime.currentDateTime())
 
         self.addWidget(self.numSelectLabel, 0, 0, 1, 2)
         self.addWidget(self.selectNumBox, 1, 0, 1, 2)
         self.addWidget(self.dateTimeSelectLabel, 0, 2, 1, 1)
         self.addWidget(self.toggleReserveMsg, 0, 3)
         self.addWidget(self.dateTimeSelectBox, 1, 2, 1, 2)
+
+        self.toggleReserveMsg.stateChanged.connect(self.disableDateTimeEdit)
+
+    def disableDateTimeEdit(self):
+        isChecked = self.toggleReserveMsg.isChecked()
+        self.dateTimeSelectBox.setEnabled(isChecked)

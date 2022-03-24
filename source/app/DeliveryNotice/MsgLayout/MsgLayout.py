@@ -4,9 +4,12 @@ from .MsgSendLayout import MsgSendLayout
 
 
 class layout(QHBoxLayout):
-    def __init__(self, parent):
+    def __init__(self, window):
         super().__init__()
-        self.msgSendLayout = MsgSendLayout.layout(parent)
+
+        self.window = window
+
+        self.msgSendLayout = MsgSendLayout.layout(self.window)
         self.msgPreviewLayout = MsgPreviewLayout.layout()
 
         self.addLayout(self.msgSendLayout)
