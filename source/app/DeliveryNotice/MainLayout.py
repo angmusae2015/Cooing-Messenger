@@ -3,14 +3,16 @@ from ScheduleTableLayout import ScheduleTableLayout
 from MsgLayout import MsgLayout
 
 
-class layout(QVBoxLayout):
+class mainLayout(QVBoxLayout):
     def __init__(self, window):
         super().__init__()
+
+        self.selectedFile = None
 
         self.window = window
 
         self.msgLayout = MsgLayout.layout(self.window)
-        self.scheduleTableLayout = ScheduleTableLayout.layout()
+        self.scheduleTableLayout = ScheduleTableLayout.layout(self.window)
 
         self.addLayout(self.msgLayout)
         self.addLayout(self.scheduleTableLayout, 1)
@@ -21,7 +23,7 @@ if __name__ == "__main__":
 
     mainWindow = QWidget()
 
-    lo = layout(mainWindow)
+    lo = mainLayout(mainWindow)
     mainWindow.setLayout(lo)
 
     mainWindow.setGeometry(500, 500, 600, 600)

@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import *
+from openpyxl import load_workbook
 
 
 class layout(QGridLayout):
@@ -29,14 +30,23 @@ class layout(QGridLayout):
 
     def selectFile(self):
         fName = QFileDialog.getOpenFileName(self.window, 'Open file', 'C:/', 'Worksheet Files(*.xlsx)')
+        self.window.selectedFile = load_workbook(fName[0])
 
         if fName[0]:
             self.fileNameViewer.setText(cutStr(fName[0]))
 
+        self.addItemToComboBox()
+
+    def addItemToComboBox(self):
+        names = self.window.selectedFile.sheetnames
+
+        for name in names:
+            self.sheetSelectBox.addItem(name)
+
 
 def cutStr(text):
-    if len(text) > 33:
+    if len(text) > 28:
         fileName = text.split('/')[-1]
-        text = text[:max(30 - len(fileName), 0)] + '.../' + fileName
+        text = text[:max(25 - len(fileName), 0)] + '.../' + fileName
 
     return text
