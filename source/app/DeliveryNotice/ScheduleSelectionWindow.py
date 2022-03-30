@@ -4,7 +4,7 @@ import pandas as pd
 import re
 
 
-data_path = "../../data/"
+data_path = "../data/"
 schedule_path = data_path + "Schedule.csv"
 book_list_path = data_path + "BookList.csv"
 series_list_path = data_path + "SeriesList.csv"
@@ -52,7 +52,7 @@ class Layout(QGridLayout):
 
         self.startDate.dateChanged.connect(self.changeEndDateRange)
         self.endDate.dateChanged.connect(self.changeStartDateRange)
-        self.searchButton.clicked.connect(self.searchByDate)
+        self.searchButton.clicked.connect(self.fillTable)
 
     def changeStartDateRange(self):
         self.startDate.setMaximumDate(self.endDate.date())
@@ -60,20 +60,29 @@ class Layout(QGridLayout):
     def changeEndDateRange(self):
         self.endDate.setMinimumDate(self.startDate.date())
 
-    def searchByDate(self):
+    def fillTable(self):
         start = pd.to_datetime(self.startDate.date().toPyDate())
         end = pd.to_datetime(self.endDate.date().toPyDate())
-        table = self.sch[(self.sch['Date'] >= start) and (self.sch['Date'] <= end)]
-        table = table[['Date', 'Tracking Num', 'Step', 'Movierang', 'Books']]
+        table = self.sch[(self.sch['Date'] >= start) & (self.sch['Date'] <= end)]
+        table = table[['Date', 'Child Num', 'Tracking Num', 'Step', 'Movierang', 'Books']]
 
-        for row in range(table.shape[0]):
+        # table['Date'] =
+
+        self.scheduleTable.setRowCount(table.shape[0])
+        self.scheduleTable.setColumnCount(6)
+
+        curRow = 0
+        for row in table.index:
             for col in range(self.scheduleTable.columnCount()):
                 value = table.loc[row][col]
                 item = QTableWidgetItem(str(value))
-                self.scheduleTable.setItem(row, col, item)
+                self.scheduleTable.setItem(curRow, col, item)
+
+            curRow += 1
 
         self.scheduleTable.resizeColumnsToContents()
 
+    # def addRow(self):
 
 
 class Window(QDialog):
