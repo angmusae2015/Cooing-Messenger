@@ -32,7 +32,12 @@ class Layout(QGridLayout):
 
         self.searchButton = QPushButton('찾기')
 
-        self.scheduleTable = QTableWidget(10, 10)
+        self.scheduleTable = QTableWidget()
+        column_headers = ['배송일', '학생', '운송장 번호', '단계', '무비랑', '책']
+        self.scheduleTable.setColumnCount(len(column_headers))
+        self.scheduleTable.setHorizontalHeaderLabels(column_headers)
+        self.scheduleTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.scheduleTable.resizeColumnsToContents()
 
         self.addMsgButton = QPushButton('추가')
 
@@ -47,6 +52,7 @@ class Layout(QGridLayout):
 
         self.startDate.dateChanged.connect(self.changeEndDateRange)
         self.endDate.dateChanged.connect(self.changeStartDateRange)
+        self.searchButton.clicked.connect(self.searchByDate)
 
     def changeStartDateRange(self):
         self.startDate.setMaximumDate(self.endDate.date())
@@ -58,6 +64,16 @@ class Layout(QGridLayout):
         start = pd.to_datetime(self.startDate.date().toPyDate())
         end = pd.to_datetime(self.endDate.date().toPyDate())
         table = self.sch[(self.sch['Date'] >= start) and (self.sch['Date'] <= end)]
+        table = table[['Date', 'Tracking Num', 'Step', 'Movierang', 'Books']]
+
+        for row in range(table.shape[0]):
+            for col in range(self.scheduleTable.columnCount()):
+                value = table.loc[row][col]
+                item = QTableWidgetItem(str(value))
+                self.scheduleTable.setItem(row, col, item)
+
+        self.scheduleTable.resizeColumnsToContents()
+
 
 
 class Window(QDialog):
