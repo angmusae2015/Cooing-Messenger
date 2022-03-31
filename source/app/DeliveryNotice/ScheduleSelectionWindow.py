@@ -1,7 +1,8 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QDate
 import pandas as pd
-import os
+import MemberTools
+import datetime
 
 
 data_path = "../data/"
@@ -11,18 +12,17 @@ series_list_path = data_path + "SeriesList.csv"
 member_path = data_path + "Member.csv"
 
 
+memberTable = pd.read_csv(member_path, dtype=str)
+
+
 class Layout(QGridLayout):
     def __init__(self, mainWindow):
         super().__init__()
 
-        # print(os.getcwd())
-
         self.mainWindow = mainWindow
 
         self.sch = pd.read_csv(schedule_path, parse_dates=['Date', 'Return Request Date'], dtype=str)
-        self.sch = self.sch[self.sch.columns[:5]]
-
-        self.member = pd.read_csv(member_path, dtype=str)
+        self.sch = self.sch[self.sch.columns[:4]]
 
         self.selectedSchedules = []
 
@@ -39,7 +39,7 @@ class Layout(QGridLayout):
         self.searchButton = QPushButton('찾기')
 
         self.scheduleTable = QTableWidget()
-        column_headers = ['배송일', '학생', '운송장 번호', '단계', '무비랑', '책']
+        column_headers = ['배송일', '학생', '운송장 번호', '책']
         self.scheduleTable.setColumnCount(len(column_headers))
         self.scheduleTable.setHorizontalHeaderLabels(column_headers)
         self.scheduleTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -75,43 +75,47 @@ class Layout(QGridLayout):
         self.scheduleTable.setRowCount(table.shape[0])
         self.scheduleTable.setColumnCount(6)
 
+        funcList = [date_table_item, child_name_table_item, tracking_num_table_item, book_table_item]
         for row in table.index:
-            self.add_row(table.loc[row], row - table.index[0])
+            for column in table.columns:
+                columnIndex = list(table.columns).index(column)
+                value = table.loc[row][column]
+
+                self.scheduleTable.setItem(row - table.index[0], columnIndex, funcList[columnIndex](value))
 
         self.scheduleTable.resizeColumnsToContents()
 
-    def add_row(self, line, row):
-        self.add_date(line['Date'], row)
-        self.add_name(line['Child Num'], row)
-        self.add_tracking_num(line['Tracking Num'], row)
 
-    def add_date(self, date, row):
-        value = "{0.year}-{0.month}-{0.day}".format(date)
-        item = QTableWidgetItem(value)
-        self.scheduleTable.setItem(row, 0, item)
+def to_table_item(func):
+    def wrapper(data):
+        value = func(data)
+        return QTableWidgetItem(value)
 
-    def add_name(self, num, row):
-        value = self.get_child_name(num)
-        item = QTableWidgetItem(value)
-        self.scheduleTable.setItem(row, 1, item)
+    return wrapper
 
-    def add_tracking_num(self, tracking_num, row):
-        part1 = tracking_num[:4] + '-'
-        part2 = tracking_num[4:8] + '-'
-        part3 = tracking_num[8:]
 
-        value = part1 + part2 + part3
-        item = QTableWidgetItem(value)
-        self.scheduleTable.setItem(row, 2, item)
+@to_table_item
+def date_table_item(date: datetime.date):
+    return "{0.year}-{0.month}-{0.day}".format(date)
 
-    def get_child_name(self, num):
-        family_ID = num[:2]
-        child_ID = num[2:]
 
-        children = self.member[self.member['Family ID'] == family_ID]['Child'].values[0]
-        for child in children.split('/'):
-            if child.split(',')[0] == child_ID:
-                return child.split(',')[1]
+@to_table_item
+def child_name_table_item(childNum: str):
+    return MemberTools.get_child_name(memberTable, childNum)
+
+
+@to_table_item
+def tracking_num_table_item(trackingNum: str):
+    part1 = trackingNum[:4] + '-'
+    part2 = trackingNum[4:8] + '-'
+    part3 = trackingNum[8:]
+
+    return part1 + part2 + part3
+
+
+@to_table_item
+def book_table_item(book: str):
+    return book
 
 
 class Window(QDialog):
