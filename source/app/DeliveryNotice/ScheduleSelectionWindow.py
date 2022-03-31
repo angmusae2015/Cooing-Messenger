@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QDate
 import pandas as pd
-import re
+import os
 
 
 data_path = "../data/"
@@ -15,9 +15,12 @@ class Layout(QGridLayout):
     def __init__(self, mainWindow):
         super().__init__()
 
+        # print(os.getcwd())
+
         self.mainWindow = mainWindow
 
         self.sch = pd.read_csv(schedule_path, parse_dates=['Date', 'Return Request Date'], dtype=str)
+        self.sch = self.sch[self.sch.columns[:5]]
 
         self.member = pd.read_csv(member_path, dtype=str)
 
@@ -67,7 +70,6 @@ class Layout(QGridLayout):
         start = pd.to_datetime(self.startDate.date().toPyDate())
         end = pd.to_datetime(self.endDate.date().toPyDate())
         table = self.sch[(self.sch['Date'] >= start) & (self.sch['Date'] <= end)]
-        table = table[['Date', 'Child Num', 'Tracking Num', 'Step', 'Movierang', 'Books']]
         table['Date'] = [date.date() for date in table['Date']]
 
         self.scheduleTable.setRowCount(table.shape[0])
@@ -81,6 +83,7 @@ class Layout(QGridLayout):
     def add_row(self, line, row):
         self.add_date(line['Date'], row)
         self.add_name(line['Child Num'], row)
+        self.add_tracking_num(line['Tracking Num'], row)
 
     def add_date(self, date, row):
         value = "{0.year}-{0.month}-{0.day}".format(date)
@@ -91,6 +94,15 @@ class Layout(QGridLayout):
         value = self.get_child_name(num)
         item = QTableWidgetItem(value)
         self.scheduleTable.setItem(row, 1, item)
+
+    def add_tracking_num(self, tracking_num, row):
+        part1 = tracking_num[:4] + '-'
+        part2 = tracking_num[4:8] + '-'
+        part3 = tracking_num[8:]
+
+        value = part1 + part2 + part3
+        item = QTableWidgetItem(value)
+        self.scheduleTable.setItem(row, 2, item)
 
     def get_child_name(self, num):
         family_ID = num[:2]
