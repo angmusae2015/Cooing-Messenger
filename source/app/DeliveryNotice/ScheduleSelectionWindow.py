@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QDate
+from PyQt5.QtCore import Qt
 import pandas as pd
 import MemberTools
 import datetime
@@ -21,9 +22,11 @@ class Layout(QGridLayout):
 
         self.mainWindow = mainWindow
 
-        self.sch = pd.read_csv(schedule_path, parse_dates=['Date', 'Return Request Date'], dtype=str)
-        self.sch = self.sch[self.sch.columns[:4]]
+        self.sch = pd.read_csv(schedule_path, parse_dates=['Date'], dtype=str)
+        self.sch = self.sch[self.sch.columns[:5]]
+        self.sch.fillna('', inplace=True)
 
+        self.showedSchedules = []
         self.selectedSchedules = []
 
         self.startDateLabel = QLabel('시작일')
@@ -38,9 +41,9 @@ class Layout(QGridLayout):
 
         self.searchButton = QPushButton('찾기')
 
+        column_headers = ['', '배송일', '학생', '운송장 번호', '책', '무비랑']
         self.scheduleTable = QTableWidget()
-        column_headers = ['배송일', '학생', '운송장 번호', '책']
-        self.scheduleTable.setColumnCount(len(column_headers))
+        self.scheduleTable.setColumnCount(len(column_headers) + 1)
         self.scheduleTable.setHorizontalHeaderLabels(column_headers)
         self.scheduleTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.scheduleTable.resizeColumnsToContents()
@@ -73,17 +76,50 @@ class Layout(QGridLayout):
         table['Date'] = [date.date() for date in table['Date']]
 
         self.scheduleTable.setRowCount(table.shape[0])
-        self.scheduleTable.setColumnCount(6)
 
-        funcList = [date_table_item, child_name_table_item, tracking_num_table_item, book_table_item]
+        funcList = [
+            date_table_item,
+            child_name_table_item,
+            tracking_num_table_item,
+            QTableWidgetItem,
+            QTableWidgetItem
+        ]
+
         for row in table.index:
             for column in table.columns:
+                rowIndex = row - table.index[0]
                 columnIndex = list(table.columns).index(column)
-                value = table.loc[row][column]
 
-                self.scheduleTable.setItem(row - table.index[0], columnIndex, funcList[columnIndex](value))
+                if columnIndex == 1:
+                    checkBox = TableCheckBox(self.scheduleTable, rowIndex)
+                    self.scheduleTable.setCellWidget(rowIndex, 0, checkBox)
+
+                value = table.loc[row, column]
+
+                self.scheduleTable.setItem(row - table.index[0], columnIndex + 1, funcList[columnIndex](value))
 
         self.scheduleTable.resizeColumnsToContents()
+        self.scheduleTable.resizeRowsToContents()
+
+
+class TableCheckBox(QWidget):
+    def __init__(self, table: QTableWidget, row: int):
+        super().__init__()
+
+        self.layout = QHBoxLayout()
+
+        self.checkbox = QCheckBox()
+        self.checkbox.stateChanged.connect(self.selectRow)
+        self.layout.addWidget(self.checkbox, alignment=Qt.AlignCenter)
+
+        self.setLayout(self.layout)
+
+        self.table = table
+        self.row = row
+
+    def selectRow(self):
+        if self.checkbox.checkState():
+            self.table.selectRow(self.row)
 
 
 def to_table_item(func):
@@ -111,11 +147,6 @@ def tracking_num_table_item(trackingNum: str):
     part3 = trackingNum[8:]
 
     return part1 + part2 + part3
-
-
-@to_table_item
-def book_table_item(book: str):
-    return book
 
 
 class Window(QDialog):
