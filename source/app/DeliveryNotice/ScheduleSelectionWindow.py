@@ -39,43 +39,41 @@ class Layout(QGridLayout):
         self.endDate = QDateEdit()
         self.endDate.setDate(QDate.currentDate())
 
-        self.searchButton = QPushButton('찾기')
+        self.scheduleTable = ScheduleTable()
 
-        column_headers = ['', '배송일', '학생', '운송장 번호', '책', '무비랑']
-        self.scheduleTable = QTableWidget()
-        self.scheduleTable.setColumnCount(len(column_headers) + 1)
-        self.scheduleTable.setHorizontalHeaderLabels(column_headers)
-        self.scheduleTable.setEditTriggers(QAbstractItemView.NoEditTriggers)
-        self.scheduleTable.resizeColumnsToContents()
+        self.searchButton = FindButton(self.scheduleTable)
+
+        self.selectedStatus = QLabel('선택됨: ')
 
         self.addMsgButton = QPushButton('추가')
 
         self.addWidget(self.startDateLabel, 0, 0, 1, 2)
         self.addWidget(self.endDateLabel, 0, 5, 1, 2)
         self.addWidget(self.startDate, 1, 0, 1, 5)
-        self.addWidget(self.endDate, 1, 5, 1, 4)
-        self.addWidget(self.searchButton, 2, 8)
-        self.addWidget(self.scheduleTable, 4, 0, 5, 9)
-        self.addWidget(self.addMsgButton, 10, 8)
+        self.addWidget(self.endDate, 1, 5, 1, 5)
+        self.addWidget(self.searchButton, 2, 9)
+        self.addWidget(self.scheduleTable, 4, 0, 5, 10)
+        self.addWidget(self.selectedStatus, 10, 0)
+        self.addWidget(self.addMsgButton, 10, 9)
         self.setRowStretch(4, 1)
 
-        self.startDate.dateChanged.connect(self.changeEndDateRange)
-        self.endDate.dateChanged.connect(self.changeStartDateRange)
-        self.searchButton.clicked.connect(self.fillTable)
+        self.startDate.dateChanged.connect(self.change_end_date_range)
+        self.endDate.dateChanged.connect(self.change_start_date_range)
+        self.searchButton.clicked.connect(self.fill_table)
 
-    def changeStartDateRange(self):
+    def change_start_date_range(self):
         self.startDate.setMaximumDate(self.endDate.date())
 
-    def changeEndDateRange(self):
+    def change_end_date_range(self):
         self.endDate.setMinimumDate(self.startDate.date())
 
-    def fillTable(self):
+    def fill_table(self):
         start = pd.to_datetime(self.startDate.date().toPyDate())
         end = pd.to_datetime(self.endDate.date().toPyDate())
-        table = self.sch[(self.sch['Date'] >= start) & (self.sch['Date'] <= end)]
-        table['Date'] = [date.date() for date in table['Date']]
+        scheduleDf = self.sch[(self.sch['Date'] >= start) & (self.sch['Date'] <= end)]
+        scheduleDf['Date'] = [date.date() for date in scheduleDf['Date']]
 
-        self.scheduleTable.setRowCount(table.shape[0])
+        self.scheduleTable.setRowCount(scheduleDf.shape[0])
 
         funcList = [
             date_table_item,
@@ -85,41 +83,68 @@ class Layout(QGridLayout):
             QTableWidgetItem
         ]
 
-        for row in table.index:
-            for column in table.columns:
-                rowIndex = row - table.index[0]
-                columnIndex = list(table.columns).index(column)
+        for row in scheduleDf.index:
+            rowIndex = row - scheduleDf.index[0]
+            checkBox = TableCheckBox(self, rowIndex)
+            self.scheduleTable.setCellWidget(rowIndex, 0, checkBox)
 
-                if columnIndex == 1:
-                    checkBox = TableCheckBox(self.scheduleTable, rowIndex)
-                    self.scheduleTable.setCellWidget(rowIndex, 0, checkBox)
+            for column in scheduleDf.columns:
+                columnIndex = list(scheduleDf.columns).index(column)
+                value = scheduleDf.loc[row, column]
 
-                value = table.loc[row, column]
-
-                self.scheduleTable.setItem(row - table.index[0], columnIndex + 1, funcList[columnIndex](value))
+                self.scheduleTable.setItem(row - scheduleDf.index[0], columnIndex + 1, funcList[columnIndex](value))
 
         self.scheduleTable.resizeColumnsToContents()
         self.scheduleTable.resizeRowsToContents()
 
 
-class TableCheckBox(QWidget):
-    def __init__(self, table: QTableWidget, row: int):
+class ScheduleTable(QTableWidget):
+    def __init__(self):
         super().__init__()
+
+        self.headers = ['', '배송일', '학생', '운송장 번호', '책', '무비랑']
+        self.selectedRows = []
+
+        self.setColumnCount(len(self.headers))
+        self.setHorizontalHeaderLabels(self.headers)
+        self.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.resizeColumnsToContents()
+
+
+class FindButton(QPushButton):
+    def __init__(self, table):
+        super().__init__()
+
+        self.table = table
+        self.setText('찾기')
+
+
+class TableCheckBox(QWidget):
+    def __init__(self, mainLayout: Layout, row: int):
+        super().__init__()
+
+        self.mainLayout = mainLayout
+        self.table = self.mainLayout.scheduleTable
 
         self.layout = QHBoxLayout()
 
-        self.checkbox = QCheckBox()
-        self.checkbox.stateChanged.connect(self.selectRow)
-        self.layout.addWidget(self.checkbox, alignment=Qt.AlignCenter)
+        self.checkboxWidget = QCheckBox()
+        self.checkboxWidget.stateChanged.connect(self.select_row)
+        self.layout.addWidget(self.checkboxWidget, alignment=Qt.AlignCenter)
 
         self.setLayout(self.layout)
 
-        self.table = table
         self.row = row
 
-    def selectRow(self):
-        if self.checkbox.checkState():
-            self.table.selectRow(self.row)
+    def select_row(self):
+        self.table.clearSelection()
+        self.table.selectRow(self.row)
+
+        if self.checkboxWidget.checkState():
+            self.table.selectedRows.append(self.table.selectedItems())
+
+        else:
+            self.table.selectedRows.remove(self.table.selectedItems())
 
 
 def to_table_item(func):
@@ -156,3 +181,4 @@ class Window(QDialog):
 
         lo = Layout(self)
         self.setLayout(lo)
+        self.setGeometry(300, 300, 500, 500)
