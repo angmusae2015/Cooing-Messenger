@@ -17,10 +17,10 @@ memberTable = pd.read_csv(member_path, dtype=str)
 
 
 class Layout(QGridLayout):
-    def __init__(self, mainWindow):
+    def __init__(self, main_window: QDialog):
         super().__init__()
 
-        self.mainWindow = mainWindow
+        self.main_window = main_window
 
         self.sch = pd.read_csv(schedule_path, parse_dates=['Date'], dtype=str)
         self.sch = self.sch[self.sch.columns[:5]]
@@ -39,11 +39,11 @@ class Layout(QGridLayout):
         self.endDate = QDateEdit()
         self.endDate.setDate(QDate.currentDate())
 
-        self.scheduleTable = ScheduleTable()
+        self.scheduleTable = ScheduleTable(self)
 
-        self.searchButton = FindButton(self.scheduleTable)
+        self.searchButton = FindButton(self)
 
-        self.selectedStatus = QLabel('선택됨: ')
+        self.selectedStatus = SelectedStatus(self)
 
         self.addMsgButton = QPushButton('추가')
 
@@ -60,6 +60,8 @@ class Layout(QGridLayout):
         self.startDate.dateChanged.connect(self.change_end_date_range)
         self.endDate.dateChanged.connect(self.change_start_date_range)
         self.searchButton.clicked.connect(self.fill_table)
+        self.searchButton.clicked.connect(self.reset_selected_row)
+        self.addMsgButton.clicked.connect(self.main_window.close)
 
     def change_start_date_range(self):
         self.startDate.setMaximumDate(self.endDate.date())
@@ -97,10 +99,16 @@ class Layout(QGridLayout):
         self.scheduleTable.resizeColumnsToContents()
         self.scheduleTable.resizeRowsToContents()
 
+    def reset_selected_row(self):
+        self.scheduleTable.selectedRows = []
+        self.selectedStatus.changeState(0)
+
 
 class ScheduleTable(QTableWidget):
-    def __init__(self):
+    def __init__(self, main_layout):
         super().__init__()
+
+        self.main_layout = main_layout
 
         self.headers = ['', '배송일', '학생', '운송장 번호', '책', '무비랑']
         self.selectedRows = []
@@ -112,19 +120,20 @@ class ScheduleTable(QTableWidget):
 
 
 class FindButton(QPushButton):
-    def __init__(self, table):
+    def __init__(self, main_layout: Layout):
         super().__init__()
 
-        self.table = table
+        self.main_layout = main_layout
+        self.table = self.main_layout.scheduleTable
         self.setText('찾기')
 
 
 class TableCheckBox(QWidget):
-    def __init__(self, mainLayout: Layout, row: int):
+    def __init__(self, main_layout: Layout, row: int):
         super().__init__()
 
-        self.mainLayout = mainLayout
-        self.table = self.mainLayout.scheduleTable
+        self.main_layout = main_layout
+        self.table = self.main_layout.scheduleTable
 
         self.layout = QHBoxLayout()
 
@@ -145,6 +154,22 @@ class TableCheckBox(QWidget):
 
         else:
             self.table.selectedRows.remove(self.table.selectedItems())
+
+        self.main_layout.selectedStatus.changeState(len(self.table.selectedRows))
+
+
+class SelectedStatus(QLabel):
+    def __init__(self, main_layout):
+        super().__init__()
+
+        self.main_layout = main_layout
+        self.value = 0
+
+        self.changeState(0)
+
+    def changeState(self, num):
+        self.value = num
+        self.setText(f"선택됨: {self.value}개")
 
 
 def to_table_item(func):
@@ -179,6 +204,6 @@ class Window(QDialog):
         super().__init__()
         self.setModal(True)
 
-        lo = Layout(self)
-        self.setLayout(lo)
+        self.lo = Layout(self)
+        self.setLayout(self.lo)
         self.setGeometry(300, 300, 500, 500)

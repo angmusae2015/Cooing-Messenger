@@ -56,3 +56,5 @@ class layout(QGridLayout):
     def showScheduleSelectionWindow(self):
         self.scheduleSelectWindow = ScheduleSelectionWindow.Window()
         self.scheduleSelectWindow.show()
+        self.scheduleSelectWindow.exec_()
+        print(self.scheduleSelectWindow.lo.selectedStatus.value)
