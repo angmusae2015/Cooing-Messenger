@@ -17,7 +17,7 @@ memberTable = pd.read_csv(member_path, dtype=str)
 
 
 class Layout(QGridLayout):
-    def __init__(self, main_window: QDialog):
+    def __init__(self, main_window):
         super().__init__()
 
         self.main_window = main_window
@@ -61,7 +61,7 @@ class Layout(QGridLayout):
         self.endDate.dateChanged.connect(self.change_start_date_range)
         self.searchButton.clicked.connect(self.fill_table)
         self.searchButton.clicked.connect(self.reset_selected_row)
-        self.addMsgButton.clicked.connect(self.main_window.close)
+        self.addMsgButton.clicked.connect(self.main_window.add_and_exit)
 
     def change_start_date_range(self):
         self.startDate.setMaximumDate(self.endDate.date())
@@ -207,3 +207,9 @@ class Window(QDialog):
         self.lo = Layout(self)
         self.setLayout(self.lo)
         self.setGeometry(300, 300, 500, 500)
+
+        self.add_button_pushed = False
+
+    def add_and_exit(self):
+        self.add_button_pushed = True
+        self.close()

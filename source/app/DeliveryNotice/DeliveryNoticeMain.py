@@ -9,6 +9,8 @@ class layout(QGridLayout):
 
         self.mainWindow = mainWindow
 
+        self.msg_list = []
+
         self.numSelectLabel = QLabel('발신 번호 선택')
 
         self.selectNumBox = QComboBox()
@@ -57,4 +59,6 @@ class layout(QGridLayout):
         self.scheduleSelectWindow = ScheduleSelectionWindow.Window()
         self.scheduleSelectWindow.show()
         self.scheduleSelectWindow.exec_()
-        print(self.scheduleSelectWindow.lo.selectedStatus.value)
+
+        if self.scheduleSelectWindow.add_button_pushed:
+            print(self.scheduleSelectWindow.lo.selectedStatus.value)
