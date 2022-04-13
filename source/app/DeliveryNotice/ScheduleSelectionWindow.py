@@ -103,8 +103,11 @@ class FindButton(QPushButton):
     def fill_table(self):
         sch_in_range = [sch for sch in self.main_layout.sch if self.date_filter(sch)]
 
-        # self.main_layout.scheduleTable.setRowCount(len(sch_in_range))
-        self.main_layout.scheduleTable.setRowCount(20)
+        row_cnt = 0
+        for row in sch_in_range:
+            row_cnt += len(row['content'])
+
+        self.main_layout.scheduleTable.setRowCount(row_cnt)
 
         crt_row = 0
         for row in sch_in_range:
