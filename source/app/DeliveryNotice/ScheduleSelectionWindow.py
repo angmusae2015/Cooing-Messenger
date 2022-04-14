@@ -83,6 +83,7 @@ class ScheduleTable(QTableWidget):
         self.setColumnCount(len(self.headers))
         self.setHorizontalHeaderLabels(self.headers)
         self.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.setSelectionMode(QAbstractItemView.MultiSelection)
         self.resizeColumnsToContents()
 
 
@@ -177,7 +178,9 @@ class TableCheckBox(QWidget):
 
     def select_row(self):
         self.table.clearSelection()
-        self.table.selectRow(self.row)
+
+        for span in range(self.table.rowSpan(self.row, 0)):
+            self.table.selectRow(self.row + span)
 
         if self.checkboxWidget.checkState():
             self.table.selectedRows.append(self.table.selectedItems())
