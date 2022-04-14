@@ -7,7 +7,7 @@ if __name__ == "__main__":
 
     mainWindow = QWidget()
 
-    mainWindow.setLayout(DeliveryNoticeMain.layout(mainWindow))
+    mainWindow.setLayout(DeliveryNoticeMain.Layout(mainWindow))
 
     # mainWindow.setGeometry(500, 500, 600, 600)
     mainWindow.setFixedWidth(350)

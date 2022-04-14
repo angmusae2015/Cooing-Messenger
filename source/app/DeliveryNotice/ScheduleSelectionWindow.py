@@ -78,7 +78,6 @@ class ScheduleTable(QTableWidget):
         self.main_layout = main_layout
 
         self.headers = ['', '운송장 번호', '배송일', '학생', '책', '무비랑']
-        self.selectedRows = []
 
         self.setColumnCount(len(self.headers))
         self.setHorizontalHeaderLabels(self.headers)
@@ -155,7 +154,7 @@ class FindButton(QPushButton):
         return (date > start) and (date < end)
 
     def reset_selected_row(self):
-        self.main_layout.scheduleTable.selectedRows = []
+        self.main_layout.selectedSchedules = []
         self.main_layout.selectedStatus.changeState(0)
 
 
@@ -182,13 +181,16 @@ class TableCheckBox(QWidget):
         for span in range(self.table.rowSpan(self.row, 0)):
             self.table.selectRow(self.row + span)
 
+        selected_tracking_num = self.table.selectedItems()[0].text().replace('-', '')
+        selected_schedule = [sch for sch in self.main_layout.sch if sch['tracking num'] == selected_tracking_num][0]
+
         if self.checkboxWidget.checkState():
-            self.table.selectedRows.append(self.table.selectedItems())
+            self.main_layout.selectedSchedules.append(selected_schedule)
 
         else:
-            self.table.selectedRows.remove(self.table.selectedItems())
+            self.main_layout.selectedSchedules.remove(selected_schedule)
 
-        self.main_layout.selectedStatus.changeState(len(self.table.selectedRows))
+        self.main_layout.selectedStatus.changeState(len(self.main_layout.selectedSchedules))
 
 
 class SelectedStatus(QLabel):

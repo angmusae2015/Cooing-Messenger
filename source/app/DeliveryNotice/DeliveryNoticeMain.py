@@ -3,11 +3,12 @@ from PyQt5.QtCore import QDateTime
 from . import ScheduleSelectionWindow
 
 
-class layout(QGridLayout):
-    def __init__(self, mainWindow):
+class Layout(QGridLayout):
+    def __init__(self, main_window):
         super().__init__()
 
-        self.mainWindow = mainWindow
+        self.scheduleSelectWindow = None
+        self.main_window = main_window
 
         self.msg_list = []
 
@@ -61,4 +62,5 @@ class layout(QGridLayout):
         self.scheduleSelectWindow.exec_()
 
         if self.scheduleSelectWindow.add_button_pushed:
-            print(self.scheduleSelectWindow.lo.selectedStatus.value)
+            for schedule in self.scheduleSelectWindow.lo.selectedSchedules:
+                print(schedule)
