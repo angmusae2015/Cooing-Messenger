@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QDate
 from PyQt5.QtCore import Qt
-import pandas as pd
 import MemberTools
 import datetime
 import json
@@ -11,10 +10,6 @@ data_path = "../data/"
 schedule_path = data_path + "Schedule.json"
 book_list_path = data_path + "BookList.csv"
 series_list_path = data_path + "SeriesList.csv"
-member_path = data_path + "Member.csv"
-
-
-memberTable = pd.read_csv(member_path, dtype=str)
 
 
 class Layout(QGridLayout):
@@ -22,9 +17,6 @@ class Layout(QGridLayout):
         super().__init__()
 
         self.main_window = main_window
-
-        # self.sch = pd.read_csv(schedule_path, parse_dates=['date'], dtype=str)
-        # self.sch.fillna('', inplace=True)
 
         with open(schedule_path) as f:
             self.sch = json.load(f)
@@ -129,6 +121,10 @@ class FindButton(QPushButton):
             for n in range(child_num):
                 content = row['content'][n]
                 item = child_name_table_item(content['child'])
+
+                if item.text() == "Error":
+                    checkbox.checkboxWidget.setDisabled(True)
+
                 self.main_layout.scheduleTable.setItem(crt_row, 3, item)
 
                 if content['book'] != 'SAME':
@@ -215,23 +211,22 @@ def to_table_item(func):
     return wrapper
 
 
-"""
 @to_table_item
-def date_table_item(date: datetime.date):
-    return "{0.year}-{0.month}-{0.day}".format(date)
-"""
+def child_name_table_item(child_id: str):
+    try:
+        name = MemberTools.get_child_name(child_id)
+
+    except MemberTools.MemberNotFoundError:
+        name = "Error"
+
+    return name
 
 
 @to_table_item
-def child_name_table_item(childNum: str):
-    return MemberTools.get_child_name(memberTable, childNum)
-
-
-@to_table_item
-def tracking_num_table_item(trackingNum: str):
-    part1 = trackingNum[:4] + '-'
-    part2 = trackingNum[4:8] + '-'
-    part3 = trackingNum[8:]
+def tracking_num_table_item(tracking_num: str):
+    part1 = tracking_num[:4] + '-'
+    part2 = tracking_num[4:8] + '-'
+    part3 = tracking_num[8:]
 
     return part1 + part2 + part3
 

@@ -1,6 +1,12 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QDateTime
 from . import ScheduleSelectionWindow
+import MemberTools
+import json
+
+
+with open("../data/Message.json") as f:
+    base_msg = json.load(f)['delivery notice']
 
 
 class Layout(QGridLayout):
@@ -64,3 +70,14 @@ class Layout(QGridLayout):
         if self.scheduleSelectWindow.add_button_pushed:
             for schedule in self.scheduleSelectWindow.lo.selectedSchedules:
                 print(schedule)
+
+
+"""
+    def write_msg(self, schedule):
+        children_names = []
+        book_list_msg = []
+        tracking_num = schedule['tracking num']
+
+        for content in schedule['content']:
+            children_names.append(MemberTools.get_child_name(content['child']))
+"""
