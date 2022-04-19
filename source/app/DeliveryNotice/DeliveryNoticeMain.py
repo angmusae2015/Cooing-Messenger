@@ -1,9 +1,11 @@
-from PyQt5.QtWidgets import *
-from PyQt5.QtCore import QDateTime
-from . import ScheduleSelectionWindow
-import MemberTools, BookTools
 import json
 
+import BookTools
+import MemberTools
+from PyQt5.QtCore import QDateTime
+from PyQt5.QtWidgets import *
+
+from . import ScheduleSelectionWindow
 
 with open("../data/Message.json") as f:
     base_msg = json.load(f)['delivery notice']
@@ -13,7 +15,7 @@ class Layout(QGridLayout):
     def __init__(self, main_window):
         super().__init__()
 
-        self.scheduleSelectWindow = None
+        self.scheduleSelectWindow = ScheduleSelectionWindow.Window()
         self.main_window = main_window
 
         self.msg_list = []
@@ -32,9 +34,9 @@ class Layout(QGridLayout):
 
         self.msgPrevLabel = QLabel('문자 미리보기')
 
-        self.msgSelection = QComboBox()
+        self.msgSelection = MsgSelectionComboBox(self)
 
-        self.deleteMsg = QPushButton('삭제')
+        self.deleteMsg = MsgDeleteButton(self)
 
         self.msgPreview = QTextBrowser()
 
@@ -63,18 +65,28 @@ class Layout(QGridLayout):
         self.dateTimeSelectBox.setEnabled(isChecked)
 
     def showScheduleSelectionWindow(self):
-        self.scheduleSelectWindow = ScheduleSelectionWindow.Window()
+        self.scheduleSelectWindow.lo.reset()
         self.scheduleSelectWindow.show()
         self.scheduleSelectWindow.exec_()
 
         if self.scheduleSelectWindow.add_button_pushed:
             for schedule in self.scheduleSelectWindow.lo.selectedSchedules:
-                self.msg_list.append(self.write_msg(schedule))
+                msg = self.write_msg(schedule)
+                if msg in self.msg_list:
+                    continue
+                else:
+                    self.msg_list.append(msg)
+
+                msg_preview_name = ""
+                msg_preview_name += schedule['date'] + ' '
+                msg_preview_name += MemberTools.get_child_name(schedule['content'][0]['child'])
+                self.msgSelection.addItem(msg_preview_name)
 
     @staticmethod
     def write_msg(schedule):
         book_list_msg_dic = {}
-        return_date = schedule['return request date']
+        return_date = schedule['return request date'].split('-')
+        return_date_str = "{0[0]}년 {0[1]}월 {0[2]}일".format(return_date)
         tracking_num = schedule['tracking num']
 
         for content in schedule['content']:
@@ -104,6 +116,35 @@ class Layout(QGridLayout):
             for m in book_list_msg_dic[name]:
                 book_list_msg += m
 
-        msg = base_msg.format(book_list_msg, return_date, tracking_num)
+        msg = base_msg.format(book_list_msg, return_date_str, tracking_num)
 
         return msg
+
+
+class MsgSelectionComboBox(QComboBox):
+    def __init__(self, main_layout: Layout):
+        super().__init__()
+
+        self.main_layout = main_layout
+
+        self.currentIndexChanged.connect(self.show_msg_preview)
+
+    def show_msg_preview(self):
+        msg = self.main_layout.msg_list[self.currentIndex()]
+        self.main_layout.msgPreview.setText(msg)
+
+
+class MsgDeleteButton(QPushButton):
+    def __init__(self, main_layout: Layout):
+        super().__init__()
+
+        self.main_layout = main_layout
+
+        self.setText('삭제')
+
+        self.clicked.connect(self.delete_msg)
+
+    def delete_msg(self):
+        crt_index = self.main_layout.msgSelection.currentIndex()
+        self.main_layout.msg_list.pop(crt_index)
+        self.main_layout.msgSelection.removeItem(crt_index)

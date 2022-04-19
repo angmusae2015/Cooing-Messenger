@@ -21,7 +21,6 @@ class Layout(QGridLayout):
         with open(schedule_path) as f:
             self.sch = json.load(f)
 
-        self.showedSchedules = []
         self.selectedSchedules = []
 
         self.startDateLabel = QLabel('시작일')
@@ -61,6 +60,10 @@ class Layout(QGridLayout):
 
     def change_end_date_range(self):
         self.endDate.setMinimumDate(self.startDate.date())
+
+    def reset(self):
+        self.findButton.reset_table()
+        self.findButton.reset_selected_row()
 
 
 class ScheduleTable(QTableWidget):
