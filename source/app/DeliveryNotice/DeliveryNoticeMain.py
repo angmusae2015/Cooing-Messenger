@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QDateTime
 from . import ScheduleSelectionWindow
-import MemberTools
+import MemberTools, BookTools
 import json
 
 
@@ -69,15 +69,41 @@ class Layout(QGridLayout):
 
         if self.scheduleSelectWindow.add_button_pushed:
             for schedule in self.scheduleSelectWindow.lo.selectedSchedules:
-                print(schedule)
+                self.msg_list.append(self.write_msg(schedule))
 
-
-"""
-    def write_msg(self, schedule):
-        children_names = []
-        book_list_msg = []
+    @staticmethod
+    def write_msg(schedule):
+        book_list_msg_dic = {}
+        return_date = schedule['return request date']
         tracking_num = schedule['tracking num']
 
         for content in schedule['content']:
-            children_names.append(MemberTools.get_child_name(content['child']))
-"""
+            child_name = MemberTools.get_child_name(content['child'])
+            book_list_msg_dic[child_name] = []
+
+            if content['book'] == 'SAME':
+                book_list_msg_dic[child_name].append('상동\n\n')
+                continue
+
+            for book in content['book']:
+                series_code = book['series']
+                book_info_msg = ""
+                book_info_msg += BookTools.get_series_name(series_code) + '\n'
+
+                for vol in book['books']:
+                    book_name = BookTools.get_book_name(series_code, vol)
+                    book_info_msg += f"{vol}. {book_name}\n"
+
+                book_info_msg += '\n'
+                book_list_msg_dic[child_name].append(book_info_msg)
+
+        book_list_msg = ""
+        for name in book_list_msg_dic.keys():
+            book_list_msg += name + '\n'
+
+            for m in book_list_msg_dic[name]:
+                book_list_msg += m
+
+        msg = base_msg.format(book_list_msg, return_date, tracking_num)
+
+        return msg
