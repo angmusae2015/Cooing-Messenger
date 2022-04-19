@@ -1,0 +1,102 @@
+{
+    "LTR": {
+        "Name": "Learn to Read",
+        "Step": 1
+    },
+    "HR2": {
+        "Name": "Hello Reader Level 2",
+        "Step": 2
+    },
+    "ICR": {
+        "Name": "I Can Read Book",
+        "Step": 2
+    },
+    "LC": {
+        "Name": "Little Critter",
+        "Step": 2
+    },
+    "HR3": {
+        "Name": "Hello Reader Level 3",
+        "Step": 3
+    },
+    "SSC": {
+        "Name": "Seriously Silly Story Colour",
+        "Step": 3
+    },
+    "AD": {
+        "Name": "Arthur Adventure",
+        "Step": 4
+    },
+    "WW": {
+        "Name": "Winnie the Witch",
+        "Step": 4
+    },
+    "BB": {
+        "Name": "The Berenstain Bears ",
+        "Step": 5
+    },
+    "HR4": {
+        "Name": "Hello Reader Level 4 ",
+        "Step": 5
+    },
+    "DRA": {
+        "Name": "Disney Read Along",
+        "Step": 6
+    },
+    "SBR": {
+        "Name": "SpongeBob Readers",
+        "Step": 7
+    },
+    "RK": {
+        "Name": "Rockets",
+        "Step": 8
+    },
+    "SSS": {
+        "Name": "Seriously Silly Stories",
+        "Step": 9
+    },
+    "EC": {
+        "Name": "Early Chapter Book",
+        "Step": 9
+    },
+    "CH": {
+        "Name": "Chameleons",
+        "Step": 10
+    },
+    "NG": {
+        "Name": "Nate the Great",
+        "Step": 10
+    },
+    "MSB": {
+        "Name": "Magic School Bus",
+        "Step": 11
+    },
+    "SBC": {
+        "Name": "SpongeBob Chapter",
+        "Step": 12
+    },
+    "ZF": {
+        "Name": "The Zack Files",
+        "Step": 13
+    },
+    "JB": {
+        "Name": "Junie B. Jones",
+        "Step": 14
+    },
+    "MTH": {
+        "Name": "The Magic Tree House",
+        "Step": 15
+    },
+    "GS": {
+        "Name": "Geronimo Stilton",
+        "Step": 16
+    },
+    "GF": {
+        "Name": "Garfield",
+        "Step": 17
+    },
+    "FKS": {
+        "Name": "Franny K. Stein",
+        "Step": 18
+    }
+}
