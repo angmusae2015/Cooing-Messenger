@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import QDate
 from PyQt5.QtCore import Qt
 import MemberTools
-import datetime
+import ScheduleTools
 import json
 
 
@@ -17,9 +17,6 @@ class Layout(QGridLayout):
         super().__init__()
 
         self.main_window = main_window
-
-        with open(schedule_path) as f:
-            self.sch = json.load(f)
 
         self.selectedSchedules = []
 
@@ -96,7 +93,9 @@ class FindButton(QPushButton):
         self.main_layout.scheduleTable.setRowCount(0)
 
     def fill_table(self):
-        sch_in_range = [sch for sch in self.main_layout.sch if self.date_filter(sch)]
+        start = self.main_layout.startDate.date().toPyDate()
+        end = self.main_layout.endDate.date().toPyDate()
+        sch_in_range = ScheduleTools.get_schedule_in_range(start, end)
 
         row_cnt = 0
         for row in sch_in_range:
@@ -107,6 +106,7 @@ class FindButton(QPushButton):
         crt_row = 0
         for row in sch_in_range:
             child_num = len(row['content'])
+            family_id = row['family']
 
             if child_num > 1:
                 for col in range(3):
@@ -115,15 +115,14 @@ class FindButton(QPushButton):
             checkbox = TableCheckBox(self.main_layout, crt_row)
             self.main_layout.scheduleTable.setCellWidget(crt_row, 0, checkbox)
 
-            item = tracking_num_table_item(row['tracking num'])
+            item = tracking_num_table_item(ScheduleTools.get_tracking_num(row))
             self.main_layout.scheduleTable.setItem(crt_row, 1, item)    # add tracking number to table
 
             item = QTableWidgetItem(row['date'])
             self.main_layout.scheduleTable.setItem(crt_row, 2, item)    # add date to table
 
-            for n in range(child_num):
-                content = row['content'][n]
-                item = child_name_table_item(content['child'])
+            for content in row['content']:
+                item = child_name_table_item(family_id, content['child'])
 
                 if item.text() == "Error":
                     checkbox.checkboxWidget.setDisabled(True)
@@ -143,14 +142,6 @@ class FindButton(QPushButton):
 
         self.main_layout.scheduleTable.resizeColumnsToContents()
         self.main_layout.scheduleTable.resizeRowsToContents()
-
-    def date_filter(self, sch):
-        start = self.main_layout.startDate.date().toPyDate()
-        end = self.main_layout.endDate.date().toPyDate()
-
-        date = datetime.datetime.strptime(sch['date'], '%Y-%m-%d').date()
-
-        return (date > start) and (date < end)
 
     def reset_selected_row(self):
         self.main_layout.selectedSchedules = []
@@ -181,7 +172,7 @@ class TableCheckBox(QWidget):
             self.table.selectRow(self.row + span)
 
         selected_tracking_num = self.table.selectedItems()[0].text().replace('-', '')
-        selected_schedule = [sch for sch in self.main_layout.sch if sch['tracking num'] == selected_tracking_num][0]
+        selected_schedule = ScheduleTools.get_schedule_by_num(selected_tracking_num)
 
         if self.checkboxWidget.checkState():
             self.main_layout.selectedSchedules.append(selected_schedule)
@@ -206,32 +197,22 @@ class SelectedStatus(QLabel):
         self.setText(f"선택됨: {self.value}개")
 
 
-def to_table_item(func):
-    def wrapper(data):
-        value = func(data)
-        return QTableWidgetItem(value)
-
-    return wrapper
-
-
-@to_table_item
-def child_name_table_item(child_id: str):
+def child_name_table_item(family_id: str, child_id: str):
     try:
-        name = MemberTools.get_child_name(child_id)
+        name = MemberTools.get_child_name(family_id, child_id)
 
     except MemberTools.MemberNotFoundError:
         name = "Error"
 
-    return name
+    return QTableWidgetItem(name)
 
 
-@to_table_item
 def tracking_num_table_item(tracking_num: str):
     part1 = tracking_num[:4] + '-'
     part2 = tracking_num[4:8] + '-'
     part3 = tracking_num[8:]
 
-    return part1 + part2 + part3
+    return QTableWidgetItem(part1 + part2 + part3)
 
 
 class Window(QDialog):

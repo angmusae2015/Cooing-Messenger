@@ -2,10 +2,12 @@ import json
 
 import BookTools
 import MemberTools
+import ScheduleTools
+import MessageTools
 from PyQt5.QtCore import QDateTime
 from PyQt5.QtWidgets import *
 
-from . import ScheduleSelectionWindow
+from DeliveryNotice import ScheduleSelectionWindow
 
 with open("../data/Message.json") as f:
     base_msg = json.load(f)['delivery notice']
@@ -18,11 +20,12 @@ class Layout(QGridLayout):
         self.scheduleSelectWindow = ScheduleSelectionWindow.Window()
         self.main_window = main_window
 
-        self.msg_list = []
+        self.msg_var_dict = {}
 
         self.numSelectLabel = QLabel('발신 번호 선택')
 
         self.selectNumBox = QComboBox()
+        self.selectNumBox.addItem('01024498362')
 
         self.dateTimeSelectLabel = QLabel('예약 시간 선택')
 
@@ -42,7 +45,7 @@ class Layout(QGridLayout):
 
         self.selectScheduleButton = QPushButton('일정 선택')
 
-        self.sendButton = QPushButton('문자 보내기')
+        self.sendButton = MsgSendButton(self)
 
         self.addWidget(self.numSelectLabel, 0, 0, 1, 2)
         self.addWidget(self.selectNumBox, 1, 0, 1, 2)
@@ -71,26 +74,33 @@ class Layout(QGridLayout):
 
         if self.scheduleSelectWindow.add_button_pushed:
             for schedule in self.scheduleSelectWindow.lo.selectedSchedules:
-                msg = self.write_msg(schedule)
-                if msg in self.msg_list:
-                    continue
-                else:
-                    self.msg_list.append(msg)
-
                 msg_preview_name = ""
                 msg_preview_name += schedule['date'] + ' '
-                msg_preview_name += MemberTools.get_child_name(schedule['content'][0]['child'])
-                self.msgSelection.addItem(msg_preview_name)
+                msg_preview_name += MemberTools.get_child_name(schedule['family'], schedule['content'][0]['child'])
+
+                if msg_preview_name in [self.msgSelection.itemText(i) for i in range(self.msgSelection.count())]:
+                    continue
+                else:
+                    self.msgSelection.addItem(msg_preview_name)
+
+                to = MemberTools.get_contact(schedule['family'])
+                var = self.write_msg(schedule)
+
+                self.msg_var_dict[msg_preview_name] = {
+                    'to': to,
+                    'msg_var': var
+                }
 
     @staticmethod
     def write_msg(schedule):
         book_list_msg_dic = {}
         return_date = schedule['return request date'].split('-')
         return_date_str = "{0[0]}년 {0[1]}월 {0[2]}일".format(return_date)
-        tracking_num = schedule['tracking num']
+        tracking_num = ScheduleTools.get_tracking_num(schedule)
+        family_id = schedule['family']
 
         for content in schedule['content']:
-            child_name = MemberTools.get_child_name(content['child'])
+            child_name = MemberTools.get_child_name(family_id, content['child'])
             book_list_msg_dic[child_name] = []
 
             if content['book'] == 'SAME':
@@ -116,9 +126,13 @@ class Layout(QGridLayout):
             for m in book_list_msg_dic[name]:
                 book_list_msg += m
 
-        msg = base_msg.format(book_list_msg, return_date_str, tracking_num)
+        var = {
+            '#{책 목록}': book_list_msg,
+            '#{반품 일자}': return_date_str,
+            '#{운송장 번호}': "CJ 대한통운 " + tracking_num
+        }
 
-        return msg
+        return var
 
 
 class MsgSelectionComboBox(QComboBox):
@@ -130,7 +144,11 @@ class MsgSelectionComboBox(QComboBox):
         self.currentIndexChanged.connect(self.show_msg_preview)
 
     def show_msg_preview(self):
-        msg = self.main_layout.msg_list[self.currentIndex()]
+        if len(self.main_layout.msg_var_dict) != 0:
+            # msg = self.main_layout.msg_var_list[self.currentText()][1]
+            msg = json.dumps(self.main_layout.msg_var_dict[self.currentText()], indent=2)
+        else:
+            msg = ""
         self.main_layout.msgPreview.setText(msg)
 
 
@@ -145,6 +163,40 @@ class MsgDeleteButton(QPushButton):
         self.clicked.connect(self.delete_msg)
 
     def delete_msg(self):
+        crt_item = self.main_layout.msgSelection.currentText()
         crt_index = self.main_layout.msgSelection.currentIndex()
-        self.main_layout.msg_list.pop(crt_index)
-        self.main_layout.msgSelection.removeItem(crt_index)
+
+        if len(self.main_layout.msg_var_dict) != 0:
+            self.main_layout.msg_var_dict.pop(crt_item)
+            self.main_layout.msgSelection.removeItem(crt_index)
+
+
+class MsgSendButton(QPushButton):
+    def __init__(self, main_layout: Layout):
+        super().__init__()
+
+        self.main_layout = main_layout
+
+        self.setText("문자 보내기")
+
+        self.message_group = {
+            'messages': []
+        }
+
+        self.clicked.connect(self.send_msg)
+
+    def send_msg(self):
+        selected_num = self.main_layout.selectNumBox.currentText()
+
+        for msg_name in self.main_layout.msg_var_dict:
+            self.main_layout.msg_var_dict[msg_name]['from'] = selected_num
+            msg_data = MessageTools.write_message_data(self.main_layout.msg_var_dict[msg_name], 0)
+
+            self.message_group['messages'].append(msg_data)
+
+        print(self.message_group)
+
+        res = MessageTools.send_message(self.message_group)
+        print(json.dumps(res.json(), indent=2, ensure_ascii=False))
+
+        self.message_group = []
