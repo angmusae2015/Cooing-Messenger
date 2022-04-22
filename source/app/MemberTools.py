@@ -2,7 +2,7 @@ import json
 
 
 path = "../data/Member.json"
-with open(path) as f:
+with open(path, encoding='utf-8') as f:
     member_dic = json.load(f)
 
 

@@ -9,9 +9,6 @@ from PyQt5.QtWidgets import *
 
 from DeliveryNotice import ScheduleSelectionWindow
 
-with open("../data/Message.json") as f:
-    base_msg = json.load(f)['delivery notice']
-
 
 class Layout(QGridLayout):
     def __init__(self, main_window):
@@ -84,15 +81,17 @@ class Layout(QGridLayout):
                     self.msgSelection.addItem(msg_preview_name)
 
                 to = MemberTools.get_contact(schedule['family'])
-                var = self.write_msg(schedule)
+                var = self.write_msg_var(schedule)
 
                 self.msg_var_dict[msg_preview_name] = {
                     'to': to,
                     'msg_var': var
                 }
 
+                self.msgSelection.show_msg_preview()
+
     @staticmethod
-    def write_msg(schedule):
+    def write_msg_var(schedule):
         book_list_msg_dic = {}
         return_date = schedule['return request date'].split('-')
         return_date_str = "{0[0]}년 {0[1]}월 {0[2]}일".format(return_date)
@@ -145,8 +144,7 @@ class MsgSelectionComboBox(QComboBox):
 
     def show_msg_preview(self):
         if len(self.main_layout.msg_var_dict) != 0:
-            # msg = self.main_layout.msg_var_list[self.currentText()][1]
-            msg = json.dumps(self.main_layout.msg_var_dict[self.currentText()], indent=2)
+            msg = MessageTools.show_preview(self.main_layout.msg_var_dict[self.currentText()], 0)
         else:
             msg = ""
         self.main_layout.msgPreview.setText(msg)

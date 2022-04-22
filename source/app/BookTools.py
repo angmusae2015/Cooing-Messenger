@@ -1,9 +1,8 @@
 import pandas as pd
 import json
 
-
 series_path = "../data/Series.json"
-with open(series_path) as f:
+with open(series_path, encoding='utf-8') as f:
     series_dic = json.load(f)
 
 

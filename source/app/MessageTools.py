@@ -18,8 +18,15 @@ with open(key_path) as f:
 api_key = key_json['API-KEY']
 api_secret = key_json['API-SECRET']
 
+preview_path = '../data/Message.json'
+with open(preview_path, encoding='utf-8') as f:
+    preview_json = json.load(f)
 
 deliveryNotice = 0
+
+message_type = {
+    0: "delivery notice"
+}
 
 
 def unique_id():
@@ -87,3 +94,9 @@ def write_message_data(var: dict, msg_type: int):
     }
 
     return data
+
+
+def show_preview(var: dict, msg_type: int):     # make preview message with message json
+    preview_msg = preview_json[message_type[msg_type]]
+
+    return preview_msg.format(list(var['msg_var'].values()))
