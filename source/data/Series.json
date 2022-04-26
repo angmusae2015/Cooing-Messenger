@@ -1,102 +1,3389 @@
 {
-    "LTR": {
-        "Name": "Learn to Read",
-        "Step": 1
+  "LTR": {
+    "Name": "Learn to Read",
+    "Step": 1,
+    "Books": [
+      "1-1",
+      "1-2",
+      "1-3",
+      "1-4",
+      "2-1",
+      "2-2",
+      "2-3",
+      "2-4",
+      "3-1",
+      "3-2",
+      "3-3",
+      "3-4",
+      "4-1",
+      "4-2",
+      "4-3",
+      "4-4",
+      "5-1",
+      "5-2",
+      "5-3",
+      "5-4",
+      "6-1",
+      "6-2",
+      "6-3",
+      "6-4",
+      "7-1",
+      "7-2",
+      "7-3",
+      "7-4",
+      "8-1",
+      "8-2",
+      "8-3",
+      "8-4",
+      "9-1",
+      "9-2",
+      "9-3",
+      "9-4",
+      "10-1",
+      "10-2",
+      "10-3",
+      "10-4",
+      "11-1",
+      "11-2",
+      "11-3",
+      "11-4",
+      "12-1",
+      "12-2",
+      "12-3",
+      "12-4",
+      "13-1",
+      "13-2",
+      "13-3",
+      "13-4",
+      "14-1",
+      "14-2",
+      "14-3",
+      "14-4",
+      "15-1",
+      "15-2",
+      "15-3",
+      "15-4",
+      "16-1",
+      "16-2",
+      "16-3",
+      "16-4",
+      "17-1",
+      "17-2",
+      "17-3",
+      "17-4",
+      "18-1",
+      "18-2",
+      "18-3",
+      "18-4",
+      "19-1",
+      "19-2",
+      "19-3",
+      "19-4",
+      "20-1",
+      "20-2",
+      "20-3",
+      "20-4",
+      "21-1",
+      "21-2",
+      "21-3",
+      "21-4",
+      "22-1",
+      "22-2",
+      "22-3",
+      "22-4",
+      "23-1",
+      "23-2",
+      "23-3",
+      "23-4",
+      "24-1",
+      "24-2",
+      "24-3",
+      "24-4"
+    ],
+    "1-1": {
+      "Name": "How to Make a Mudpie",
+      "Amount": 4
     },
-    "HR2": {
-        "Name": "Hello Reader Level 2",
-        "Step": 2
+    "1-2": {
+      "Name": "I See Colors",
+      "Amount": 4
     },
-    "ICR": {
-        "Name": "I Can Read Book",
-        "Step": 2
+    "1-3": {
+      "Name": "I Am Special",
+      "Amount": 4
     },
-    "LC": {
-        "Name": "Little Critter",
-        "Step": 2
+    "1-4": {
+      "Name": "I See Shapes",
+      "Amount": 4
     },
-    "HR3": {
-        "Name": "Hello Reader Level 3",
-        "Step": 3
+    "2-1": {
+      "Name": "I Can Read",
+      "Amount": 4
     },
-    "SSC": {
-        "Name": "Seriously Silly Story Colour",
-        "Step": 3
+    "2-2": {
+      "Name": "Buttons Buttons",
+      "Amount": 4
     },
-    "AD": {
-        "Name": "Arthur Adventure",
-        "Step": 4
+    "2-3": {
+      "Name": "We Can Share at School",
+      "Amount": 4
     },
-    "WW": {
-        "Name": "Winnie the Witch",
-        "Step": 4
+    "2-4": {
+      "Name": "Our Pumpkin",
+      "Amount": 4
     },
-    "BB": {
-        "Name": "The Berenstain Bears ",
-        "Step": 5
+    "3-1": {
+      "Name": "I Can Write",
+      "Amount": 4
     },
-    "HR4": {
-        "Name": "Hello Reader Level 4 ",
-        "Step": 5
+    "3-2": {
+      "Name": "How's the Weather?",
+      "Amount": 4
     },
-    "DRA": {
-        "Name": "Disney Read Along",
-        "Step": 6
+    "3-3": {
+      "Name": "How Can I Help?",
+      "Amount": 4
     },
-    "SBR": {
-        "Name": "SpongeBob Readers",
-        "Step": 7
+    "3-4": {
+      "Name": "I See Patterns",
+      "Amount": 4
     },
-    "RK": {
-        "Name": "Rockets",
-        "Step": 8
+    "4-1": {
+      "Name": "Pigs",
+      "Amount": 4
     },
-    "SSS": {
-        "Name": "Seriously Silly Stories",
-        "Step": 9
+    "4-2": {
+      "Name": "See How It Crows",
+      "Amount": 4
     },
-    "EC": {
-        "Name": "Early Chapter Book",
-        "Step": 9
+    "4-3": {
+      "Name": "Mr",
+      "Amount": 4
     },
-    "CH": {
-        "Name": "Chameleons",
-        "Step": 10
+    "4-4": {
+      "Name": "Barney Bear Gets Dressed",
+      "Amount": 5
     },
-    "NG": {
-        "Name": "Nate the Great",
-        "Step": 10
+    "5-1": {
+      "Name": "Under the Sky",
+      "Amount": 4
     },
-    "MSB": {
-        "Name": "Magic School Bus",
-        "Step": 11
+    "5-2": {
+      "Name": "The Four Seasons",
+      "Amount": 4
     },
-    "SBC": {
-        "Name": "SpongeBob Chapter",
-        "Step": 12
+    "5-3": {
+      "Name": "What Do We Need?",
+      "Amount": 4
     },
-    "ZF": {
-        "Name": "The Zack Files",
-        "Step": 13
+    "5-4": {
+      "Name": "What comes in threes?",
+      "Amount": 4
     },
-    "JB": {
-        "Name": "Junie B. Jones",
-        "Step": 14
+    "6-1": {
+      "Name": "How Many?",
+      "Amount": 4
     },
-    "MTH": {
-        "Name": "The Magic Tree House",
-        "Step": 15
+    "6-2": {
+      "Name": "Is It Alive?",
+      "Amount": 4
     },
-    "GS": {
-        "Name": "Geronimo Stilton",
-        "Step": 16
+    "6-3": {
+      "Name": "The World in a Supermarket",
+      "Amount": 4
     },
-    "GF": {
-        "Name": "Garfield",
-        "Step": 17
+    "6-4": {
+      "Name": "Scaredy Cat Runs Away",
+      "Amount": 4
     },
-    "FKS": {
-        "Name": "Franny K. Stein",
-        "Step": 18
+    "7-1": {
+      "Name": "Where's Your Tooth?",
+      "Amount": 3
+    },
+    "7-2": {
+      "Name": "On the Go",
+      "Amount": 4
+    },
+    "7-3": {
+      "Name": "Barney Bear, World Traveler",
+      "Amount": 3
+    },
+    "7-4": {
+      "Name": "What Time Is It?",
+      "Amount": 4
+    },
+    "8-1": {
+      "Name": "Where Do Monsters Live?",
+      "Amount": 4
+    },
+    "8-2": {
+      "Name": "We Can Eat the Plants",
+      "Amount": 4
+    },
+    "8-3": {
+      "Name": "Five Little Monsters Went to School",
+      "Amount": 4
+    },
+    "8-4": {
+      "Name": "Mr. Noisy's Book of Patterns",
+      "Amount": 4
+    },
+    "9-1": {
+      "Name": "Rain",
+      "Amount": 4
+    },
+    "9-2": {
+      "Name": "Whose Forest Is It?",
+      "Amount": 4
+    },
+    "9-3": {
+      "Name": "Pilgrim Children Had Many Chores",
+      "Amount": 4
+    },
+    "9-4": {
+      "Name": "The Costume Parade",
+      "Amount": 4
+    },
+    "10-1": {
+      "Name": "Little Green Frog",
+      "Amount": 3
+    },
+    "10-2": {
+      "Name": "It's Melting!",
+      "Amount": 4
+    },
+    "10-3": {
+      "Name": "Oranges For Orange Juice",
+      "Amount": 4
+    },
+    "10-4": {
+      "Name": "Who Took the Cookies from the Cookie Jar?",
+      "Amount": 4
+    },
+    "11-1": {
+      "Name": "The Bear Went Over the Mountain",
+      "Amount": 3
+    },
+    "11-2": {
+      "Name": "What's Going On?",
+      "Amount": 4
+    },
+    "11-3": {
+      "Name": "People Say Hello",
+      "Amount": 4
+    },
+    "11-4": {
+      "Name": "We Can Make Graphs",
+      "Amount": 4
+    },
+    "12-1": {
+      "Name": "What Do you See?",
+      "Amount": 4
+    },
+    "12-2": {
+      "Name": "Reduce, Reuse, Recycle",
+      "Amount": 4
+    },
+    "12-3": {
+      "Name": "Can You Read a Map?",
+      "Amount": 4
+    },
+    "12-4": {
+      "Name": "The Skip Count Song",
+      "Amount": 4
+    },
+    "13-1": {
+      "Name": "All Through the Week with Cat and Dog",
+      "Amount": 2
+    },
+    "13-2": {
+      "Name": "Long Ago and Today",
+      "Amount": 2
+    },
+    "13-3": {
+      "Name": "Who Lives Here?",
+      "Amount": 2
+    },
+    "13-4": {
+      "Name": "Five Littles Monsters",
+      "Amount": 2
+    },
+    "14-1": {
+      "Name": "Cat and Dog",
+      "Amount": 2
+    },
+    "14-2": {
+      "Name": "Families Share",
+      "Amount": 2
+    },
+    "14-3": {
+      "Name": "I Can't Sleep",
+      "Amount": 2
+    },
+    "14-4": {
+      "Name": "Spiders, Spiders Everywhere!",
+      "Amount": 2
+    },
+    "15-1": {
+      "Name": "The Giraffe Made Her Laugh",
+      "Amount": 2
+    },
+    "15-2": {
+      "Name": "Safety Counts!",
+      "Amount": 2
+    },
+    "15-3": {
+      "Name": "Round and Round the Seasons",
+      "Amount": 2
+    },
+    "15-4": {
+      "Name": "A-Counting We Will Go",
+      "Amount": 2
+    },
+    "16-1": {
+      "Name": "Scaredy cat",
+      "Amount": 2
+    },
+    "16-2": {
+      "Name": "The One and Only Special Me",
+      "Amount": 2
+    },
+    "16-3": {
+      "Name": "Mom Can Fix Anything",
+      "Amount": 2
+    },
+    "16-4": {
+      "Name": "The Time Song",
+      "Amount": 2
+    },
+    "17-1": {
+      "Name": "Bears, Bears, Everywhere",
+      "Amount": 2
+    },
+    "17-2": {
+      "Name": "Cat and Dog at School",
+      "Amount": 2
+    },
+    "17-3": {
+      "Name": "What's In My Pocket?",
+      "Amount": 2
+    },
+    "17-4": {
+      "Name": "Let's Measure It!",
+      "Amount": 2
+    },
+    "18-1": {
+      "Name": "Cinderella Dressed in Yellow",
+      "Amount": 2
+    },
+    "18-2": {
+      "Name": "In Times Long Ago",
+      "Amount": 2
+    },
+    "18-3": {
+      "Name": "What's the Weather Like Today",
+      "Amount": 2
+    },
+    "18-4": {
+      "Name": "Ten Monsters in a Bed",
+      "Amount": 2
+    },
+    "19-1": {
+      "Name": "City Mouse and Country Mouse",
+      "Amount": 2
+    },
+    "19-2": {
+      "Name": "Mr. Noisy's Helpers",
+      "Amount": 2
+    },
+    "19-3": {
+      "Name": "The Seed Song ",
+      "Amount": 2
+    },
+    "19-4": {
+      "Name": "The Bugs Go Marcching",
+      "Amount": 2
+    },
+    "20-1": {
+      "Name": "Mr. Noisy",
+      "Amount": 2
+    },
+    "20-2": {
+      "Name": "My Global Address",
+      "Amount": 2
+    },
+    "20-3": {
+      "Name": "Where Are You Going?",
+      "Amount": 2
+    },
+    "20-4": {
+      "Name": "The Crayola Counting Book",
+      "Amount": 2
+    },
+    "21-1": {
+      "Name": "Who Will Help?",
+      "Amount": 2
+    },
+    "21-2": {
+      "Name": "Good Choices for Cat and Dog",
+      "Amount": 2
+    },
+    "21-3": {
+      "Name": "Who's Hiding?",
+      "Amount": 2
+    },
+    "21-4": {
+      "Name": "Little Number Stories: Addition",
+      "Amount": 2
+    },
+    "22-1": {
+      "Name": "Way Down South",
+      "Amount": 2
+    },
+    "22-2": {
+      "Name": "Houses",
+      "Amount": 2
+    },
+    "22-3": {
+      "Name": "If a Tree Could Talk",
+      "Amount": 2
+    },
+    "22-4": {
+      "Name": "Little Number Stories: Subtraction",
+      "Amount": 2
+    },
+    "23-1": {
+      "Name": "Down on the Farm",
+      "Amount": 2
+    },
+    "23-2": {
+      "Name": "Just Like Me",
+      "Amount": 2
+    },
+    "23-3": {
+      "Name": "Let's Take Care of the Earth",
+      "Amount": 2
+    },
+    "23-4": {
+      "Name": "Lunch With Cat and Dog",
+      "Amount": 2
+    },
+    "24-1": {
+      "Name": "There's a Monster in the Tree",
+      "Amount": 2
+    },
+    "24-2": {
+      "Name": "Maps",
+      "Amount": 2
+    },
+    "24-3": {
+      "Name": "What Happened?",
+      "Amount": 2
+    },
+    "24-4": {
+      "Name": "The Magic Money Box"
     }
+  },
+  "HR2": {
+    "Name": "Hello Reader Level 2",
+    "Step": 2,
+    "Books": [
+      "1-1",
+      "1-2",
+      "1-3",
+      "1-4",
+      "1-5",
+      "1-6",
+      "1-7",
+      "1-8",
+      "1-9",
+      "1-10",
+      "1-11",
+      "1-12",
+      "2-1",
+      "2-2",
+      "2-3",
+      "2-4",
+      "2-5",
+      "2-6",
+      "2-7",
+      "2-8",
+      "2-9",
+      "2-10",
+      "2-11",
+      "2-12",
+      "3-1",
+      "3-2",
+      "3-3",
+      "3-4",
+      "3-5",
+      "3-6",
+      "3-7",
+      "3-8",
+      "3-9",
+      "3-10",
+      "3-11"
+    ],
+    "1-1": {
+      "Name": "Hiccups for Elephant",
+      "Amount": 3
+    },
+    "1-2": {
+      "Name": "How Many Feet? How Many Tails?",
+      "Amount": 3
+    },
+    "1-3": {
+      "Name": "More Spaghetti, I Say!",
+      "Amount": 3
+    },
+    "1-4": {
+      "Name": "The Wrong-Way Rabbit",
+      "Amount": 4
+    },
+    "1-5": {
+      "Name": "Best Friends Wear Pink Tutus",
+      "Amount": 4
+    },
+    "1-6": {
+      "Name": "The Cows Are in the Corn",
+      "Amount": 4
+    },
+    "1-7": {
+      "Name": "Dinosaurs",
+      "Amount": 4
+    },
+    "1-8": {
+      "Name": "The Great Race",
+      "Amount": 4
+    },
+    "1-9": {
+      "Name": "Great Snakes!",
+      "Amount": 4
+    },
+    "1-10": {
+      "Name": "Slower Than a Snail",
+      "Amount": 3
+    },
+    "1-11": {
+      "Name": "The 100th Day of School",
+      "Amount": 3
+    },
+    "1-12": {
+      "Name": "All Tutus Should Be Pink",
+      "Amount": 3
+    },
+    "2-1": {
+      "Name": "The Day the Sheep Showed up",
+      "Amount": 4
+    },
+    "2-2": {
+      "Name": "Two Crazy Pigs",
+      "Amount": 4
+    },
+    "2-3": {
+      "Name": "Class Picture Day",
+      "Amount": 4
+    },
+    "2-4": {
+      "Name": "More or Less a Mess",
+      "Amount": 3
+    },
+    "2-5": {
+      "Name": "We Eat Dinner in the Bathtub",
+      "Amount": 4
+    },
+    "2-6": {
+      "Name": "Wake Me in Spring",
+      "Amount": 4
+    },
+    "2-7": {
+      "Name": "We Just Moved!",
+      "Amount": 4
+    },
+    "2-8": {
+      "Name": "Too Many Puppies",
+      "Amount": 3
+    },
+    "2-9": {
+      "Name": "The Sword in the Stone",
+      "Amount": 4
+    },
+    "2-10": {
+      "Name": "Not Enough Room!",
+      "Amount": 4
+    },
+    "2-11": {
+      "Name": "Just a Minute!",
+      "Amount": 5
+    },
+    "2-12": {
+      "Name": "Fraidy Cats",
+      "Amount": 3
+    },
+    "3-1": {
+      "Name": "The Day of the Bad Haircut",
+      "Amount": 4
+    },
+    "3-2": {
+      "Name": "Roller Skates!",
+      "Amount": 3
+    },
+    "3-3": {
+      "Name": "Once Upon a Springtime",
+      "Amount": 4
+    },
+    "3-4": {
+      "Name": "Stay in Line",
+      "Amount": 3
+    },
+    "3-5": {
+      "Name": "Butterflies",
+      "Amount": 3
+    },
+    "3-6": {
+      "Name": "What Time Is It?",
+      "Amount": 3
+    },
+    "3-7": {
+      "Name": "More for Me!",
+      "Amount": 4
+    },
+    "3-8": {
+      "Name": "The Day the Dog Said, \"Cock-a-Doodle-Doo!\"",
+      "Amount": 3
+    },
+    "3-9": {
+      "Name": "N-O Spells NO!",
+      "Amount": 4
+    },
+    "3-10": {
+      "Name": "No Fair!",
+      "Amount": 4
+    },
+    "3-11": {
+      "Name": "Slip! Slide! Skate!",
+      "Amount": 4
+    }
+  },
+  "ICR": {
+    "Name": "I Can Read Book",
+    "Step": 2,
+    "Books": [
+      "0-1",
+      "0-2",
+      "0-3",
+      "0-4",
+      "0-5",
+      "0-6",
+      "0-7",
+      "0-8",
+      "0-9",
+      "1-1",
+      "1-2",
+      "1-3",
+      "1-4",
+      "1-5",
+      "1-6",
+      "1-7",
+      "1-8",
+      "1-9",
+      "1-10",
+      "1-11",
+      "1-12",
+      "1-13",
+      "1-14",
+      "1-15",
+      "1-16",
+      "1-17",
+      "1-18",
+      "1-19",
+      "1-20",
+      "2-1",
+      "2-2",
+      "2-3",
+      "2-4",
+      "2-5",
+      "2-6",
+      "2-7",
+      "2-8",
+      "2-9",
+      "2-10",
+      "2-11",
+      "2-12",
+      "2-13",
+      "2-14",
+      "2-15",
+      "2-16",
+      "2-18",
+      "2-19",
+      "2-20",
+      "2-21",
+      "2-22",
+      "3-1",
+      "3-2",
+      "3-3",
+      "3-4",
+      "3-5",
+      "3-6",
+      "3-7",
+      "3-8",
+      "3-9",
+      "3-10",
+      "3-11",
+      "3-12",
+      "3-13",
+      "3-14"
+    ],
+    "0-1": {
+      "Name": "Splish, Splash",
+      "Amount": 1
+    },
+    "0-2": {
+      "Name": "Sid And Sam",
+      "Amount": 1
+    },
+    "0-3": {
+      "Name": "Oh, Cats!",
+      "Amount": 1
+    },
+    "0-4": {
+      "Name": "How Many Fish?",
+      "Amount": 1
+    },
+    "0-5": {
+      "Name": "Mine's the Best",
+      "Amount": 1
+    },
+    "0-6": {
+      "Name": "I See, You Saw",
+      "Amount": 1
+    },
+    "0-7": {
+      "Name": "Go Away Dog",
+      "Amount": 1
+    },
+    "0-8": {
+      "Name": "Biscuit's Big Friend",
+      "Amount": 1
+    },
+    "0-9": {
+      "Name": "The Day I Had to Play with My Sister",
+      "Amount": 1
+    },
+    "1-1": {
+      "Name": "Who Will be My Friends?",
+      "Amount": 1
+    },
+    "1-2": {
+      "Name": "What Do You Hear When Cows Sing?",
+      "Amount": 2
+    },
+    "1-3": {
+      "Name": "Drip, Drop",
+      "Amount": 2
+    },
+    "1-4": {
+      "Name": "Morris the Moose",
+      "Amount": 2
+    },
+    "1-5": {
+      "Name": "Geese Find the Missing Piece",
+      "Amount": 2
+    },
+    "1-6": {
+      "Name": "And I Mean It, Stanley",
+      "Amount": 2
+    },
+    "1-7": {
+      "Name": "DIGBY",
+      "Amount": 1
+    },
+    "1-8": {
+      "Name": "The Horse in Harry's Room",
+      "Amount": 2
+    },
+    "1-9": {
+      "Name": "Danny and the Dinosaur",
+      "Amount": 1
+    },
+    "1-10": {
+      "Name": "Who's Afraid of the Dark?",
+      "Amount": 3
+    },
+    "1-11": {
+      "Name": "Danny and the Dinosaur Go to Camp",
+      "Amount": 3
+    },
+    "1-12": {
+      "Name": "Morris Goes to School",
+      "Amount": 2
+    },
+    "1-13": {
+      "Name": "A Kiss For Little Bear",
+      "Amount": 3
+    },
+    "1-14": {
+      "Name": "Biscuit's New Trick",
+      "Amount": 1
+    },
+    "1-15": {
+      "Name": "Biscuit's Wants to play",
+      "Amount": 1
+    },
+    "1-16": {
+      "Name": "Biscuit",
+      "Amount": 1
+    },
+    "1-17": {
+      "Name": "Biscuit's Day at the Farm",
+      "Amount": 1
+    },
+    "1-18": {
+      "Name": "Bathtime for Biscuit",
+      "Amount": 1
+    },
+    "1-19": {
+      "Name": "Biscuit Goes to School",
+      "Amount": 1
+    },
+    "1-20": {
+      "Name": "Happy Birthday, Danny and Dinosaur!",
+      "Amount": 2
+    },
+    "2-1": {
+      "Name": "Silly Tilly and the Easter Bunny",
+      "Amount": 2
+    },
+    "2-2": {
+      "Name": "Barney's Horse",
+      "Amount": 2
+    },
+    "2-3": {
+      "Name": "Dinosaur Time",
+      "Amount": 2
+    },
+    "2-4": {
+      "Name": "Ready, Set, Go!",
+      "Amount": 2
+    },
+    "2-5": {
+      "Name": "Dirk Bones",
+      "Amount": 1
+    },
+    "2-6": {
+      "Name": "Oscar Otter",
+      "Amount": 1
+    },
+    "2-7": {
+      "Name": "Sammy The Seal",
+      "Amount": 2
+    },
+    "2-8": {
+      "Name": "The Fat Cat Sat on The Mat",
+      "Amount": 2
+    },
+    "2-9": {
+      "Name": "Dixie",
+      "Amount": 1
+    },
+    "2-10": {
+      "Name": "Crocodile and Hen",
+      "Amount": 2
+    },
+    "2-11": {
+      "Name": "The Littlest Leaguer",
+      "Amount": 1
+    },
+    "2-12": {
+      "Name": "Silly Tilly's Valentine",
+      "Amount": 1
+    },
+    "2-13": {
+      "Name": "Fancy Nancy: Pajama Day",
+      "Amount": 1
+    },
+    "2-14": {
+      "Name": "Fancy Nancy: The Dazzling Book Report",
+      "Amount": 1
+    },
+    "2-15": {
+      "Name": "Fancy Nancy at The Museum",
+      "Amount": 1
+    },
+    "2-16": {
+      "Name": "Fancy Nancy: The Show Must Go On",
+      "Amount": 1
+    },
+    "2-18": {
+      "Name": "Fancy Nancy and the Boy from Paris",
+      "Amount": 1
+    },
+    "2-19": {
+      "Name": "Fancy Nancy: Splendid Speller",
+      "Amount": 1
+    },
+    "2-20": {
+      "Name": "Baa-Choo!",
+      "Amount": 1
+    },
+    "2-21": {
+      "Name": "Mrs. Brice's Mice",
+      "Amount": 2
+    },
+    "2-22": {
+      "Name": "The Lighthouse Children",
+      "Amount": 1
+    },
+    "3-1": {
+      "Name": "Little Chick's Friend Duckling",
+      "Amount": 2
+    },
+    "3-2": {
+      "Name": "Joe and Betsy the Dinosaur",
+      "Amount": 1
+    },
+    "3-3": {
+      "Name": "Ms. Turtle the Babysitter",
+      "Amount": 1
+    },
+    "3-4": {
+      "Name": "Silly Tilly's Thanksgiving Dinner",
+      "Amount": 1
+    },
+    "3-5": {
+      "Name": "Morris and Boris at the Circus",
+      "Amount": 1
+    },
+    "3-6": {
+      "Name": "Johnny Lion's Book",
+      "Amount": 1
+    },
+    "3-7": {
+      "Name": "Little Bear and The Marco Polo",
+      "Amount": 1
+    },
+    "3-8": {
+      "Name": "No More Monsters for Me!",
+      "Amount": 1
+    },
+    "3-9": {
+      "Name": "Little Bear's Friend",
+      "Amount": 1
+    },
+    "3-10": {
+      "Name": "The Fire Cat",
+      "Amount": 1
+    },
+    "3-11": {
+      "Name": "Little Bears's Visit",
+      "Amount": 1
+    },
+    "3-12": {
+      "Name": "Harry and the Lady Next Door",
+      "Amount": 1
+    },
+    "3-13": {
+      "Name": "Little Bear ",
+      "Amount": 2
+    },
+    "3-14": {
+      "Name": "Father Bear Comes Home",
+      "Amount": 3
+    }
+  },
+  "LC": {
+    "Name": "Little Critter",
+    "Step": 2,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "1": {
+      "Name": "All by Myself",
+      "Amount": 7
+    },
+    "2": {
+      "Name": "The New Baby",
+      "Amount": 7
+    },
+    "3": {
+      "Name": "Just Me and My Babysitter",
+      "Amount": 6
+    },
+    "4": {
+      "Name": "Just Me and My Puppy",
+      "Amount": 6
+    },
+    "5": {
+      "Name": "Just Grandpa and Me",
+      "Amount": 5
+    },
+    "6": {
+      "Name": "Just Grandma and Me",
+      "Amount": 5
+    },
+    "7": {
+      "Name": "Me too!",
+      "Amount": 5
+    },
+    "8": {
+      "Name": "Just for You",
+      "Amount": 5
+    },
+    "9": {
+      "Name": "The New Potty",
+      "Amount": 5
+    },
+    "10": {
+      "Name": "Just My Friend and Me",
+      "Amount": 5
+    },
+    "11": {
+      "Name": "Merry Christmas Mom and dad",
+      "Amount": 5
+    },
+    "12": {
+      "Name": "Just go to Bed",
+      "Amount": 5
+    },
+    "13": {
+      "Name": "Just Me and My Little Brother",
+      "Amount": 5
+    },
+    "14": {
+      "Name": "Just Shopping with Mom",
+      "Amount": 5
+    },
+    "15": {
+      "Name": "Just Me and My Mom",
+      "Amount": 5
+    },
+    "16": {
+      "Name": "Just Me and My Dad",
+      "Amount": 5
+    }
+  },
+  "HR3": {
+    "Name": "Hello Reader Level 3",
+    "Step": 3,
+    "Books": [
+      "1-1",
+      "1-2",
+      "1-3",
+      "1-4",
+      "1-5",
+      "1-6",
+      "1-7",
+      "1-8",
+      "2-1",
+      "2-2",
+      "2-3",
+      "2-4",
+      "2-5",
+      "2-6",
+      "2-7",
+      "2-8",
+      "2-9",
+      "2-10",
+      "3-1",
+      "3-2",
+      "3-3",
+      "3-4",
+      "3-5",
+      "3-6",
+      "3-7"
+    ],
+    "1-1": {
+      "Name": "Wild, Wild Hair",
+      "Amount": 4
+    },
+    "1-2": {
+      "Name": "She Sells Seashells",
+      "Amount": 4
+    },
+    "1-3": {
+      "Name": "Endangered Animals",
+      "Amount": 4
+    },
+    "1-4": {
+      "Name": "Make Way For Tooth Decay",
+      "Amount": 4
+    },
+    "1-5": {
+      "Name": "A Quarter from the Tooth Fairy",
+      "Amount": 4
+    },
+    "1-6": {
+      "Name": "The Witch Goes to School",
+      "Amount": 5
+    },
+    "1-7": {
+      "Name": "The Popcorn Shop",
+      "Amount": 5
+    },
+    "1-8": {
+      "Name": "The Lunch Line",
+      "Amount": 4
+    },
+    "2-1": {
+      "Name": "Monster Manners",
+      "Amount": 5
+    },
+    "2-2": {
+      "Name": "The Biggest Fish",
+      "Amount": 5
+    },
+    "2-3": {
+      "Name": "Germs! Germs! Germs!",
+      "Amount": 4
+    },
+    "2-4": {
+      "Name": "The Blind Men and the Elephant",
+      "Amount": 4
+    },
+    "2-5": {
+      "Name": "Three Pigs, One Wolf, and Seven Magic Shapes",
+      "Amount": 4
+    },
+    "2-6": {
+      "Name": "One Hungry Cat",
+      "Amount": 4
+    },
+    "2-7": {
+      "Name": "The Best Teacher in the World",
+      "Amount": 2
+    },
+    "2-8": {
+      "Name": "The Fattest, Tallest, Biggest Snowman Ever",
+      "Amount": 5
+    },
+    "2-9": {
+      "Name": "Even Steven and Odd Todd",
+      "Amount": 5
+    },
+    "2-10": {
+      "Name": "Who's Afraid of the Big, Bad Bully?",
+      "Amount": 5
+    },
+    "3-1": {
+      "Name": "Football Friends",
+      "Amount": 5
+    },
+    "3-2": {
+      "Name": "Fluffy Goes To School",
+      "Amount": 5
+    },
+    "3-3": {
+      "Name": "The Frog Prince",
+      "Amount": 4
+    },
+    "3-4": {
+      "Name": "That Fat Hat",
+      "Amount": 4
+    },
+    "3-5": {
+      "Name": "A Girl Named Helen Keller",
+      "Amount": 4
+    },
+    "3-6": {
+      "Name": "Dive!",
+      "Amount": 5
+    },
+    "3-7": {
+      "Name": "A Boy Named Boomer",
+      "Amount": 3
+    }
+  },
+  "SSC": {
+    "Name": "Seriously Silly Story Colour",
+    "Step": 3,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "1": {
+      "Name": "The Silly Willy Billy Goats",
+      "Amount": 2
+    },
+    "2": {
+      "Name": "The Ugly Duck Thing",
+      "Amount": 2
+    },
+    "3": {
+      "Name": "The Elves and the Storymaker",
+      "Amount": 2
+    },
+    "4": {
+      "Name": "Bleeping Beauty",
+      "Amount": 2
+    },
+    "5": {
+      "Name": "Handsome and Gruesome",
+      "Amount": 2
+    },
+    "6": {
+      "Name": "Freddy Frogface",
+      "Amount": 2
+    },
+    "7": {
+      "Name": "The Princess and the Tree",
+      "Amount": 2
+    },
+    "8": {
+      "Name": "The Little Marzipan Man",
+      "Amount": 2
+    }
+  },
+  "AD": {
+    "Name": "Arthur Adventure",
+    "Step": 4,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24"
+    ],
+    "1": {
+      "Name": "Arthur's New Puppy",
+      "Amount": 5
+    },
+    "2": {
+      "Name": "Arthur's Teacher Trouble",
+      "Amount": 6
+    },
+    "3": {
+      "Name": "Arthur's First Sleepover",
+      "Amount": 7
+    },
+    "4": {
+      "Name": "Arthur's Tooth",
+      "Amount": 6
+    },
+    "5": {
+      "Name": "Arthur's Pet Business",
+      "Amount": 5
+    },
+    "6": {
+      "Name": "Arthur's Halloween",
+      "Amount": 5
+    },
+    "7": {
+      "Name": "Arthur and the True Francine",
+      "Amount": 5
+    },
+    "8": {
+      "Name": "Arthur's Valentine",
+      "Amount": 6
+    },
+    "9": {
+      "Name": "Arthur's Christmas",
+      "Amount": 6
+    },
+    "10": {
+      "Name": "Arthur Meets the President",
+      "Amount": 7
+    },
+    "11": {
+      "Name": "Arthur and the Baby",
+      "Amount": 6
+    },
+    "12": {
+      "Name": "Arthur's April Fool",
+      "Amount": 5
+    },
+    "13": {
+      "Name": "Arthur Babysits",
+      "Amount": 5
+    },
+    "14": {
+      "Name": "Arthur's Eyes",
+      "Amount": 7
+    },
+    "15": {
+      "Name": "Arthur's Birthday",
+      "Amount": 5
+    },
+    "16": {
+      "Name": "Arthur Goes to Camp",
+      "Amount": 5
+    },
+    "17": {
+      "Name": "Arthur Writes a Story",
+      "Amount": 7
+    },
+    "18": {
+      "Name": "Arthur's Family Vacation",
+      "Amount": 4
+    },
+    "19": {
+      "Name": "Arthur's Chicken Pox",
+      "Amount": 5
+    },
+    "20": {
+      "Name": "Arthur's TV Trouble",
+      "Amount": 7
+    },
+    "21": {
+      "Name": "Arthur's Underwear",
+      "Amount": 2
+    },
+    "22": {
+      "Name": "Arthur Turns Green",
+      "Amount": 1
+    },
+    "23": {
+      "Name": "Arthur's Teacher Moves In",
+      "Amount": 1
+    },
+    "24": {
+      "Name": "Arthur Lost and Found",
+      "Amount": 2
+    }
+  },
+  "WW": {
+    "Name": "Winnie the Witch",
+    "Step": 4,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15"
+    ],
+    "1": {
+      "Name": "Winnie's Midnight Dragon",
+      "Amount": 4
+    },
+    "2": {
+      "Name": "Happy Birthday, Winnie!",
+      "Amount": 4
+    },
+    "3": {
+      "Name": "Winnie's Flying Carpet",
+      "Amount": 4
+    },
+    "4": {
+      "Name": "Winnie's Amazing Pumpkin",
+      "Amount": 4
+    },
+    "5": {
+      "Name": "Winnie in Space",
+      "Amount": 4
+    },
+    "6": {
+      "Name": "Winnie Under the Sea",
+      "Amount": 4
+    },
+    "7": {
+      "Name": "Winnie the Witch",
+      "Amount": 4
+    },
+    "8": {
+      "Name": "Winnie Flies Again",
+      "Amount": 3
+    },
+    "9": {
+      "Name": "Winnie in Winter",
+      "Amount": 4
+    },
+    "10": {
+      "Name": "Winnie's Magic Wand ",
+      "Amount": 4
+    },
+    "11": {
+      "Name": "Winnie's New Computer",
+      "Amount": 4
+    },
+    "12": {
+      "Name": "Winnie at the Seaside",
+      "Amount": 4
+    },
+    "13": {
+      "Name": "Winnie's Dinosaur Day",
+      "Amount": 3
+    },
+    "14": {
+      "Name": "Winnie's Pirate Adventure",
+      "Amount": 3
+    },
+    "15": {
+      "Name": "Winnie's Big Bad Robot",
+      "Amount": 1
+    }
+  },
+  "BB": {
+    "Name": "The Berenstain Bears ",
+    "Step": 5,
+    "Books": [
+      "1-1",
+      "1-2",
+      "1-3",
+      "1-4",
+      "1-5",
+      "1-6",
+      "2-1",
+      "2-2",
+      "2-3",
+      "2-4",
+      "2-5",
+      "2-6",
+      "3-1",
+      "3-2",
+      "3-3",
+      "3-4",
+      "3-5",
+      "3-6",
+      "4-1",
+      "4-2",
+      "4-3",
+      "4-4",
+      "4-5",
+      "4-6",
+      "5-1",
+      "5-2",
+      "5-3",
+      "5-4",
+      "5-5",
+      "5-6",
+      "6-1",
+      "6-2",
+      "6-3",
+      "6-4",
+      "6-5",
+      "6-6",
+      "7-1",
+      "7-2",
+      "7-3",
+      "7-4",
+      "7-5",
+      "7-6",
+      "8-1",
+      "8-2",
+      "8-3",
+      "8-4",
+      "8-5",
+      "8-6",
+      "9-1",
+      "9-2",
+      "9-3",
+      "9-4",
+      "9-5",
+      "9-6",
+      "10-1",
+      "10-2",
+      "10-3",
+      "10-4",
+      "10-5",
+      "10-6"
+    ],
+    "1-1": {
+      "Name": "Missing Honey",
+      "Amount": 2
+    },
+    "1-2": {
+      "Name": "Big Road Race",
+      "Amount": 2
+    },
+    "1-3": {
+      "Name": "Blaze a Trail",
+      "Amount": 2
+    },
+    "1-4": {
+      "Name": "Bad Dream",
+      "Amount": 2
+    },
+    "1-5": {
+      "Name": "Ghost of the Forest",
+      "Amount": 2
+    },
+    "1-6": {
+      "Name": "Count Their Blessings",
+      "Amount": 2
+    },
+    "2-1": {
+      "Name": "Too Much Birthday",
+      "Amount": 3
+    },
+    "2-2": {
+      "Name": "Junk Food",
+      "Amount": 3
+    },
+    "2-3": {
+      "Name": "Pressure",
+      "Amount": 3
+    },
+    "2-4": {
+      "Name": "Teasing",
+      "Amount": 3
+    },
+    "2-5": {
+      "Name": "Too Much TV",
+      "Amount": 3
+    },
+    "2-6": {
+      "Name": "Too Much Vacation",
+      "Amount": 3
+    },
+    "3-1": {
+      "Name": "Funny Valentine",
+      "Amount": 2
+    },
+    "3-2": {
+      "Name": "Real Easter Eggs",
+      "Amount": 2
+    },
+    "3-3": {
+      "Name": "Mama's Day Surprise",
+      "Amount": 2
+    },
+    "3-4": {
+      "Name": "Trick or Treat",
+      "Amount": 2
+    },
+    "3-5": {
+      "Name": "Prize Pumpkin",
+      "Amount": 2
+    },
+    "3-6": {
+      "Name": "Meet Santa Bear",
+      "Amount": 2
+    },
+    "4-1": {
+      "Name": "Don't Pollute(anymore)",
+      "Amount": 3
+    },
+    "4-2": {
+      "Name": "Think of Those in Need",
+      "Amount": 3
+    },
+    "4-3": {
+      "Name": "Learn about Strangers",
+      "Amount": 3
+    },
+    "4-4": {
+      "Name": "Lend a Helping Hand",
+      "Amount": 3
+    },
+    "4-5": {
+      "Name": "New Neighbors",
+      "Amount": 3
+    },
+    "4-6": {
+      "Name": "The Sitter",
+      "Amount": 3
+    },
+    "5-1": {
+      "Name": "Moving Day",
+      "Amount": 2
+    },
+    "5-2": {
+      "Name": "Baby Makes Five",
+      "Amount": 2
+    },
+    "5-3": {
+      "Name": "Mama's New Job",
+      "Amount": 2
+    },
+    "5-4": {
+      "Name": "Papa's Day Surprise",
+      "Amount": 2
+    },
+    "5-5": {
+      "Name": "Week at Grandma's",
+      "Amount": 2
+    },
+    "5-6": {
+      "Name": "Get Their Kicks",
+      "Amount": 2
+    },
+    "6-1": {
+      "Name": "In the Dark",
+      "Amount": 2
+    },
+    "6-2": {
+      "Name": "Get in a Fight",
+      "Amount": 2
+    },
+    "6-3": {
+      "Name": "The Truth",
+      "Amount": 2
+    },
+    "6-4": {
+      "Name": "Green-Eyed Monster",
+      "Amount": 2
+    },
+    "6-5": {
+      "Name": "Blame Game",
+      "Amount": 2
+    },
+    "6-6": {
+      "Name": "Trouble with Grownups",
+      "Amount": 2
+    },
+    "7-1": {
+      "Name": "Go to the Doctor",
+      "Amount": 2
+    },
+    "7-2": {
+      "Name": "Visit the Dentist",
+      "Amount": 2
+    },
+    "7-3": {
+      "Name": "Go to Camp",
+      "Amount": 2
+    },
+    "7-4": {
+      "Name": "Go Out for the Team",
+      "Amount": 2
+    },
+    "7-5": {
+      "Name": "Get Stage Fright",
+      "Amount": 2
+    },
+    "7-6": {
+      "Name": "Get the Gimmies",
+      "Amount": 2
+    },
+    "8-1": {
+      "Name": "Trouble with Friends",
+      "Amount": 3
+    },
+    "8-2": {
+      "Name": "No Girls Allowed",
+      "Amount": 3
+    },
+    "8-3": {
+      "Name": "In-Crowd",
+      "Amount": 4
+    },
+    "8-4": {
+      "Name": "Double Dare",
+      "Amount": 4
+    },
+    "8-5": {
+      "Name": "Slumber Party",
+      "Amount": 4
+    },
+    "8-6": {
+      "Name": "Bully",
+      "Amount": 4
+    },
+    "9-1": {
+      "Name": "Go to School",
+      "Amount": 3
+    },
+    "9-2": {
+      "Name": "Trouble at School",
+      "Amount": 3
+    },
+    "9-3": {
+      "Name": "Homework Hassle",
+      "Amount": 3
+    },
+    "9-4": {
+      "Name": "Excuse Note",
+      "Amount": 3
+    },
+    "9-5": {
+      "Name": "Report Card Trouble",
+      "Amount": 3
+    },
+    "9-6": {
+      "Name": "Bad Habit",
+      "Amount": 3
+    },
+    "10-1": {
+      "Name": "Big Blooper",
+      "Amount": 4
+    },
+    "10-2": {
+      "Name": "Forget Their Manners",
+      "Amount": 4
+    },
+    "10-3": {
+      "Name": "Messy Room",
+      "Amount": 4
+    },
+    "10-4": {
+      "Name": "Trouble with Money",
+      "Amount": 4
+    },
+    "10-5": {
+      "Name": "Dollars and Sense",
+      "Amount": 4
+    },
+    "10-6": {
+      "Name": "Mad, Mad, Mad Toy Craze",
+      "Amount": 4
+    }
+  },
+  "HR4": {
+    "Name": "Hello Reader Level 4",
+    "Step": 5,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "1": {
+      "Name": "A Book About Your Skeleton",
+      "Amount": 4
+    },
+    "2": {
+      "Name": "The Case of the Backyard Treasure",
+      "Amount": 4
+    },
+    "3": {
+      "Name": "How Much is that Guinea Pig in the Window?",
+      "Amount": 4
+    },
+    "4": {
+      "Name": "The Schoolyard Mystery",
+      "Amount": 4
+    },
+    "5": {
+      "Name": "Soccer Cousins",
+      "Amount": 4
+    },
+    "6": {
+      "Name": "Seeing Stars",
+      "Amount": 4
+    },
+    "7": {
+      "Name": "Tornadoes!!",
+      "Amount": 4
+    },
+    "8": {
+      "Name": "Hurricanes!",
+      "Amount": 4
+    },
+    "9": {
+      "Name": "Lightning",
+      "Amount": 4
+    },
+    "10": {
+      "Name": "Blizzard",
+      "Amount": 4
+    }
+  },
+  "DRA": {
+    "Name": "Disney Read Along",
+    "Step": 6,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29"
+    ],
+    "1": {
+      "Name": "Tangled Ever After",
+      "Amount": 1
+    },
+    "2": {
+      "Name": "Secret of the Wings",
+      "Amount": 1
+    },
+    "3": {
+      "Name": "Planes",
+      "Amount": 2
+    },
+    "4": {
+      "Name": "Cars ",
+      "Amount": 2
+    },
+    "5": {
+      "Name": "Monsters University",
+      "Amount": 2
+    },
+    "6": {
+      "Name": "Frozen Fever",
+      "Amount": 2
+    },
+    "7": {
+      "Name": "TinkerBell and the Legend of the Neverbeast",
+      "Amount": 1
+    },
+    "8": {
+      "Name": "Moon Mater",
+      "Amount": 3
+    },
+    "9": {
+      "Name": "Finding Nemo",
+      "Amount": 3
+    },
+    "10": {
+      "Name": "Toy Story",
+      "Amount": 3
+    },
+    "11": {
+      "Name": "Good Dinosaur",
+      "Amount": 2
+    },
+    "12": {
+      "Name": "Cars 2",
+      "Amount": 4
+    },
+    "13": {
+      "Name": "Monsters Inc.",
+      "Amount": 3
+    },
+    "14": {
+      "Name": "Air Mater",
+      "Amount": 2
+    },
+    "15": {
+      "Name": "Inside Out",
+      "Amount": 3
+    },
+    "16": {
+      "Name": "Brave",
+      "Amount": 3
+    },
+    "17": {
+      "Name": "Frozen",
+      "Amount": 2
+    },
+    "18": {
+      "Name": "Zootopia",
+      "Amount": 2
+    },
+    "19": {
+      "Name": "Finding Dory",
+      "Amount": 2
+    },
+    "20": {
+      "Name": "Lion King",
+      "Amount": 3
+    },
+    "21": {
+      "Name": "Pirate Fairy",
+      "Amount": 3
+    },
+    "22": {
+      "Name": "Peter Pan",
+      "Amount": 2
+    },
+    "23": {
+      "Name": "Aladdin",
+      "Amount": 2
+    },
+    "24": {
+      "Name": "Sleeping Beauty",
+      "Amount": 2
+    },
+    "25": {
+      "Name": "Cinderella A Heart Full of Love",
+      "Amount": 1
+    },
+    "26": {
+      "Name": "Cinderella",
+      "Amount": 1
+    },
+    "27": {
+      "Name": "Tangled",
+      "Amount": 2
+    },
+    "28": {
+      "Name": "The Little Mermaid",
+      "Amount": 1
+    },
+    "29": {
+      "Name": "Wreck-it Ralph",
+      "Amount": 1
+    }
+  },
+  "SBR": {
+    "Name": "SpongeBob Readers",
+    "Step": 7,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "1": {
+      "Name": "The Big Halloween Scare",
+      "Amount": 1
+    },
+    "2": {
+      "Name": "Special Delivery!",
+      "Amount": 1
+    },
+    "3": {
+      "Name": "Show Me the Bunny!",
+      "Amount": 1
+    },
+    "4": {
+      "Name": "Camp Spongebob",
+      "Amount": 1
+    },
+    "5": {
+      "Name": "UFO",
+      "Amount": 1
+    },
+    "6": {
+      "Name": "Hoedown Showdown",
+      "Amount": 2
+    },
+    "7": {
+      "Name": "Spongebob Rocks!",
+      "Amount": 2
+    },
+    "8": {
+      "Name": "Spongebob LovePants",
+      "Amount": 2
+    },
+    "9": {
+      "Name": "Just Say \"Please!\"",
+      "Amount": 1
+    },
+    "10": {
+      "Name": "Man Sponge Saves the Day",
+      "Amount": 1
+    }
+  },
+  "RK": {
+    "Name": "Rockets ",
+    "Step": 8,
+    "Books": [
+      "1-1",
+      "1-2",
+      "1-3",
+      "1-4",
+      "1-5",
+      "1-6",
+      "1-7",
+      "1-8",
+      "2-1",
+      "2-2",
+      "2-3",
+      "2-4",
+      "2-5",
+      "2-6",
+      "2-7",
+      "2-8",
+      "3-1",
+      "3-2",
+      "3-3",
+      "3-4",
+      "3-5",
+      "3-6",
+      "3-7",
+      "3-8"
+    ],
+    "1-1": {
+      "Name": "Sausage and the Little Visitor",
+      "Amount": 4
+    },
+    "1-2": {
+      "Name": "Sausage in Trouble",
+      "Amount": 4
+    },
+    "1-3": {
+      "Name": "School for Sausage",
+      "Amount": 4
+    },
+    "1-4": {
+      "Name": "Sausage and the Spooks",
+      "Amount": 4
+    },
+    "1-5": {
+      "Name": "Uncle-and-Auntie Pat",
+      "Amount": 4
+    },
+    "1-6": {
+      "Name": "Granny's Jungle Garden",
+      "Amount": 4
+    },
+    "1-7": {
+      "Name": "Jenny the Joker",
+      "Amount": 4
+    },
+    "1-8": {
+      "Name": "Grandad's Bonneshaker Biycle",
+      "Amount": 4
+    },
+    "2-1": {
+      "Name": "Rover Goes to School",
+      "Amount": 5
+    },
+    "2-2": {
+      "Name": "Rover the Champion",
+      "Amount": 4
+    },
+    "2-3": {
+      "Name": "Rover's Birthday",
+      "Amount": 4
+    },
+    "2-4": {
+      "Name": "Rover Shows Off",
+      "Amount": 4
+    },
+    "2-5": {
+      "Name": "What Mr. Croc Forgot",
+      "Amount": 3
+    },
+    "2-6": {
+      "Name": "Mr. Croc's Silly Sock",
+      "Amount": 3
+    },
+    "2-7": {
+      "Name": "Mr. Croc's Clock",
+      "Amount": 5
+    },
+    "2-8": {
+      "Name": "Mr. Croc's Walk",
+      "Amount": 3
+    },
+    "3-1": {
+      "Name": "Kevin and the Pirate Test",
+      "Amount": 5
+    },
+    "3-2": {
+      "Name": "Smudger and the Smelly Fish",
+      "Amount": 5
+    },
+    "3-3": {
+      "Name": "Doris's Brilliant Birthday",
+      "Amount": 5
+    },
+    "3-4": {
+      "Name": "Captain Motley and the Pirates' Gold",
+      "Amount": 5
+    },
+    "3-5": {
+      "Name": "The Perfect Pizza",
+      "Amount": 5
+    },
+    "3-6": {
+      "Name": "The Posh Party",
+      "Amount": 5
+    },
+    "3-7": {
+      "Name": "The Potty Panto",
+      "Amount": 5
+    },
+    "3-8": {
+      "Name": "The Muddled Monsters",
+      "Amount": 5
+    }
+  },
+  "SSS": {
+    "Name": "Seriously Silly Stories",
+    "Step": 9,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "1": {
+      "Name": "Billy Beast",
+      "Amount": 4
+    },
+    "2": {
+      "Name": "Little Red Riding Wolf",
+      "Amount": 4
+    },
+    "3": {
+      "Name": "Daft Jack and the Bean Stack",
+      "Amount": 4
+    },
+    "4": {
+      "Name": "Rumply Crumply Stinky Pin",
+      "Amount": 4
+    },
+    "5": {
+      "Name": "The Emperor's Underwear",
+      "Amount": 4
+    },
+    "6": {
+      "Name": "Ghostyshocks and the Three Scares",
+      "Amount": 4
+    },
+    "7": {
+      "Name": "Eco-Wolf and the Three Pigs",
+      "Amount": 4
+    },
+    "8": {
+      "Name": "The Rather Small Turnip",
+      "Amount": 4
+    },
+    "9": {
+      "Name": "The Fried Piper of Hamstring",
+      "Amount": 4
+    },
+    "10": {
+      "Name": "Snow White and the Seven Aliens",
+      "Amount": 5
+    },
+    "11": {
+      "Name": "Shampoozel",
+      "Amount": 4
+    },
+    "12": {
+      "Name": "Cinderboy",
+      "Amount": 4
+    }
+  },
+  "EC": {
+    "Name": "Early Chapter Book",
+    "Step": 9,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16"
+    ],
+    "1": {
+      "Name": "Bert and the Burglar",
+      "Amount": 4
+    },
+    "2": {
+      "Name": "Scary Dog",
+      "Amount": 4
+    },
+    "3": {
+      "Name": "Maggie Magic",
+      "Amount": 4
+    },
+    "4": {
+      "Name": "Percy the Pink",
+      "Amount": 4
+    },
+    "5": {
+      "Name": "Mr. Trim and Miss Jumble",
+      "Amount": 5
+    },
+    "6": {
+      "Name": "Lucy and the Firestone",
+      "Amount": 5
+    },
+    "7": {
+      "Name": "Hal the Highwayman",
+      "Amount": 5
+    },
+    "8": {
+      "Name": "Alpha Betty ",
+      "Amount": 5
+    },
+    "9": {
+      "Name": "Hugo's Hullabaloo",
+      "Amount": 4
+    },
+    "10": {
+      "Name": "Cup Run",
+      "Amount": 4
+    },
+    "11": {
+      "Name": "Buck and his Truck",
+      "Amount": 4
+    },
+    "12": {
+      "Name": "Brian the Giant",
+      "Amount": 4
+    },
+    "13": {
+      "Name": "Big Wig",
+      "Amount": 5
+    },
+    "14": {
+      "Name": "Hal The Pirate",
+      "Amount": 5
+    },
+    "15": {
+      "Name": "Dragon Test",
+      "Amount": 5
+    },
+    "16": {
+      "Name": "Going Up",
+      "Amount": 5
+    }
+  },
+  "CH": {
+    "Name": "Chameleons",
+    "Step": 10,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20"
+    ],
+    "1": {
+      "Name": "Milo in a Mess",
+      "Amount": 3
+    },
+    "2": {
+      "Name": "Alice Goes North",
+      "Amount": 3
+    },
+    "3": {
+      "Name": "Dino Doggy",
+      "Amount": 3
+    },
+    "4": {
+      "Name": "Elvis the Squirrel",
+      "Amount": 3
+    },
+    "5": {
+      "Name": "Alice goes to Hollywood",
+      "Amount": 3
+    },
+    "6": {
+      "Name": "Mouldylocks and the Three Claes",
+      "Amount": 3
+    },
+    "7": {
+      "Name": "Toby and His Old Tin Tub ",
+      "Amount": 3
+    },
+    "8": {
+      "Name": "Ronnie's Treasure Hunt",
+      "Amount": 3
+    },
+    "9": {
+      "Name": "Duncan and the Pirates",
+      "Amount": 3
+    },
+    "10": {
+      "Name": "Superdog Stan",
+      "Amount": 3
+    },
+    "11": {
+      "Name": "Spookball Champions",
+      "Amount": 3
+    },
+    "12": {
+      "Name": "Hetty the Yeti",
+      "Amount": 3
+    },
+    "13": {
+      "Name": "The Mean Team from Mars",
+      "Amount": 3
+    },
+    "14": {
+      "Name": "Brick-A-Breck",
+      "Amount": 3
+    },
+    "15": {
+      "Name": "Eye, Eye Captain!",
+      "Amount": 3
+    },
+    "16": {
+      "Name": "Alice Knows Best",
+      "Amount": 3
+    },
+    "17": {
+      "Name": "Cat-A-Wall",
+      "Amount": 3
+    },
+    "18": {
+      "Name": "Mr. Croc Rocks",
+      "Amount": 3
+    },
+    "19": {
+      "Name": "Mighty Max",
+      "Amount": 3
+    },
+    "20": {
+      "Name": "Sherlock Mr. Croc",
+      "Amount": 3
+    }
+  },
+  "NG": {
+    "Name": "Nate the Great",
+    "Step": 10,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30"
+    ],
+    "1": {
+      "Name": "Nate the Great",
+      "Amount": 4
+    },
+    "2": {
+      "Name": "Nate the Great and Me : The Case of the Fleeing Fang",
+      "Amount": 3
+    },
+    "3": {
+      "Name": "Nate the Great and the Crunchy Christmas",
+      "Amount": 3
+    },
+    "4": {
+      "Name": "Nate the Great and the Big Sniff",
+      "Amount": 3
+    },
+    "5": {
+      "Name": "Nate the Great and the Boring Beach Bag",
+      "Amount": 3
+    },
+    "6": {
+      "Name": "Nate the Great and the Fishy Prize",
+      "Amount": 3
+    },
+    "7": {
+      "Name": "Nate the Great and the Halloween Hunt",
+      "Amount": 3
+    },
+    "8": {
+      "Name": "Nate the Great and the Sticky Case",
+      "Amount": 3
+    },
+    "9": {
+      "Name": "Nate the Great and the Phony Clue",
+      "Amount": 3
+    },
+    "10": {
+      "Name": "Nate the Great and the Missing Key",
+      "Amount": 3
+    },
+    "11": {
+      "Name": "Nate the Great and the Snowy Trail",
+      "Amount": 3
+    },
+    "12": {
+      "Name": "Nate the Great and the Lost List",
+      "Amount": 3
+    },
+    "13": {
+      "Name": "Nate the Great and the Musical Note",
+      "Amount": 3
+    },
+    "14": {
+      "Name": "Nate the Great and the Stolen Base",
+      "Amount": 3
+    },
+    "15": {
+      "Name": "Nate the Great and the Pillowcase",
+      "Amount": 3
+    },
+    "16": {
+      "Name": "Nate the Great and the Tardy Tortoise",
+      "Amount": 3
+    },
+    "17": {
+      "Name": "Nate the Great and the Mushy Valentine",
+      "Amount": 3
+    },
+    "18": {
+      "Name": "Nate the Great Goes Undercover",
+      "Amount": 3
+    },
+    "19": {
+      "Name": "Nate the Great Stalks Stupidweed",
+      "Amount": 3
+    },
+    "20": {
+      "Name": "Nate the Great Goes Down in the Dumps",
+      "Amount": 3
+    },
+    "21": {
+      "Name": "Nate the Great Saves the King of Sweden",
+      "Amount": 3
+    },
+    "22": {
+      "Name": "Nate the Great and the Monster Mess",
+      "Amount": 3
+    },
+    "23": {
+      "Name": "Nate the Great San Francisco Detective",
+      "Amount": 3
+    },
+    "24": {
+      "Name": "Nate the Great on the Owl Express",
+      "Amount": 3
+    },
+    "25": {
+      "Name": "Nate the Great Talks Trukey",
+      "Amount": 3
+    },
+    "26": {
+      "Name": "Nate the Great and the Hungry Book Club",
+      "Amount": 3
+    },
+    "27": {
+      "Name": "Olivia Sharp : The Pizza Monster",
+      "Amount": 2
+    },
+    "28": {
+      "Name": "Olivia Sharp : The Princess of the Fillmore Street School",
+      "Amount": 2
+    },
+    "29": {
+      "Name": "Olivia Sharp : The Sly Spy",
+      "Amount": 2
+    },
+    "30": {
+      "Name": "Olivia Sharp : The Green Toenails Gang",
+      "Amount": 2
+    }
+  },
+  "MSB": {
+    "Name": "Magic School Bus",
+    "Step": 11,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30"
+    ],
+    "1": {
+      "Name": "Plants Seeds",
+      "Amount": 2
+    },
+    "2": {
+      "Name": "Sees Stars",
+      "Amount": 2
+    },
+    "3": {
+      "Name": "Shows and Tells",
+      "Amount": 2
+    },
+    "4": {
+      "Name": "Wet All Over",
+      "Amount": 2
+    },
+    "5": {
+      "Name": "Goes Upstream",
+      "Amount": 2
+    },
+    "6": {
+      "Name": "Going Batty",
+      "Amount": 2
+    },
+    "7": {
+      "Name": "In a Pickle",
+      "Amount": 2
+    },
+    "8": {
+      "Name": "In the Arctic",
+      "Amount": 2
+    },
+    "9": {
+      "Name": "Inside Ralphie",
+      "Amount": 2
+    },
+    "10": {
+      "Name": "Kicks Up a Storm",
+      "Amount": 2
+    },
+    "11": {
+      "Name": "Butterfly and the Bog Beast",
+      "Amount": 2
+    },
+    "12": {
+      "Name": "Gets Ants in Its Pants",
+      "Amount": 2
+    },
+    "13": {
+      "Name": "Gets Cold Feet",
+      "Amount": 2
+    },
+    "14": {
+      "Name": "Gets Eaten",
+      "Amount": 2
+    },
+    "15": {
+      "Name": "Gets Planted",
+      "Amount": 2
+    },
+    "16": {
+      "Name": "Gets All Dried Up",
+      "Amount": 3
+    },
+    "17": {
+      "Name": "Blows lts Top",
+      "Amount": 3
+    },
+    "18": {
+      "Name": "Gets a Bright Idea",
+      "Amount": 3
+    },
+    "19": {
+      "Name": "Gets Baked in a Cake",
+      "Amount": 3
+    },
+    "20": {
+      "Name": "Gets Programmed",
+      "Amount": 3
+    },
+    "21": {
+      "Name": "Hops Home",
+      "Amount": 3
+    },
+    "22": {
+      "Name": "In the Haunted Museum",
+      "Amount": 3
+    },
+    "23": {
+      "Name": "Makes a Rainbow",
+      "Amount": 3
+    },
+    "24": {
+      "Name": "Meets the Rot Squad",
+      "Amount": 3
+    },
+    "25": {
+      "Name": "Out of This World",
+      "Amount": 3
+    },
+    "26": {
+      "Name": "Plays Ball",
+      "Amount": 3
+    },
+    "27": {
+      "Name": "Spins a Web",
+      "Amount": 3
+    },
+    "28": {
+      "Name": "Takes a Dive",
+      "Amount": 3
+    },
+    "29": {
+      "Name": "Taking Flight",
+      "Amount": 3
+    },
+    "30": {
+      "Name": "Ups and Downs"
+    }
+  },
+  "SBC": {
+    "Name": "SpongeBob Chapter",
+    "Step": 12,
+    "Books": [
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "4": {
+      "Name": "The World's Greatest Valentine",
+      "Amount": 1
+    },
+    "5": {
+      "Name": "SpongeBob Superstar",
+      "Amount": 1
+    },
+    "6": {
+      "Name": "Sandy's Rocket",
+      "Amount": 1
+    },
+    "7": {
+      "Name": "SpongeBob Naturepants",
+      "Amount": 1
+    }
+  },
+  "ZF": {
+    "Name": "The Zack Files",
+    "Step": 13,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28",
+      "29",
+      "30"
+    ],
+    "1": {
+      "Name": "Great-Grandpa's in the Litter Box",
+      "Amount": 1
+    },
+    "2": {
+      "Name": "Through the Medicne Cabinet",
+      "Amount": 2
+    },
+    "3": {
+      "Name": "A Ghost Named Wanda ",
+      "Amount": 2
+    },
+    "4": {
+      "Name": "Zap! I'm a Mind Reader",
+      "Amount": 2
+    },
+    "5": {
+      "Name": "Dr. Jekyij, Orthodontist",
+      "Amount": 2
+    },
+    "6": {
+      "Name": "I'm Out of My Body... Please Leave a Message",
+      "Amount": 1
+    },
+    "7": {
+      "Name": "Never Trust a Cat Who Wears Earrings",
+      "Amount": 1
+    },
+    "8": {
+      "Name": "My Son, the Time Traveler",
+      "Amount": 2
+    },
+    "9": {
+      "Name": "The Volcano Goddess Will See You Now",
+      "Amount": 1
+    },
+    "10": {
+      "Name": "Bozo the Clone",
+      "Amount": 1
+    },
+    "11": {
+      "Name": "How to speak Dolphin in Three Easy Lessons",
+      "Amount": 1
+    },
+    "12": {
+      "Name": "Now You See Me... Now You Don't",
+      "Amount": 3
+    },
+    "13": {
+      "Name": "The Misfortune Cookie",
+      "Amount": 1
+    },
+    "14": {
+      "Name": "Elvis the Turnip\u2026and Me",
+      "Amount": 1
+    },
+    "15": {
+      "Name": "Hang a Left at Venus",
+      "Amount": 2
+    },
+    "16": {
+      "Name": "Evil Queen Tut and the Great Ant Pyramids",
+      "Amount": 1
+    },
+    "17": {
+      "Name": "Yikes! Grandma's a Teenager",
+      "Amount": 1
+    },
+    "18": {
+      "Name": "How I Fixed the Year 1000 Problem",
+      "Amount": 1
+    },
+    "19": {
+      "Name": "The Boy Who Cried Bigfoot",
+      "Amount": 1
+    },
+    "20": {
+      "Name": "How I Went from Bad to Verse",
+      "Amount": 1
+    },
+    "21": {
+      "Name": "Don't Count on Dracula",
+      "Amount": 1
+    },
+    "22": {
+      "Name": "This Body's Not Big Enough for Both of Us",
+      "Amount": 1
+    },
+    "23": {
+      "Name": "Greenish Eggs and Dinosaurs",
+      "Amount": 1
+    },
+    "24": {
+      "Name": "My Grandma, Major-League Slugger",
+      "Amount": 1
+    },
+    "25": {
+      "Name": "Trapped in the Museum of Unnatural History",
+      "Amount": 1
+    },
+    "26": {
+      "Name": "Me and My Mummy",
+      "Amount": 1
+    },
+    "27": {
+      "Name": "My Teacher Ate My Homework",
+      "Amount": 1
+    },
+    "28": {
+      "Name": "Tell a Lie and Your Butt Will Grow",
+      "Amount": 1
+    },
+    "29": {
+      "Name": "Just Add Water... and Scream!!",
+      "Amount": 1
+    },
+    "30": {
+      "Name": "It's Itchcraft!",
+      "Amount": 1
+    }
+  },
+  "JB": {
+    "Name": "Junie B. Jones",
+    "Step": 14,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28"
+    ],
+    "1": {
+      "Name": "Junie B. Jones and the Stupid Smelly Bus",
+      "Amount": 2
+    },
+    "2": {
+      "Name": "Junie B. Jones and a Little Monkey Business",
+      "Amount": 2
+    },
+    "3": {
+      "Name": "Junie B. Jones and Her Big Fat Mouth",
+      "Amount": 2
+    },
+    "4": {
+      "Name": "Junie B. Jones and Some Sneaky Peeky Spying",
+      "Amount": 2
+    },
+    "5": {
+      "Name": "Junie B. Jones and the Yucky Blucky Fruitcake ",
+      "Amount": 2
+    },
+    "6": {
+      "Name": "Junie B. Jones and that Meanie Jim's Birthday ",
+      "Amount": 4
+    },
+    "7": {
+      "Name": "Junie B. Jones Loves Handsome Warren",
+      "Amount": 2
+    },
+    "8": {
+      "Name": "Junie B. Jones Has a Monster Under Her Bed ",
+      "Amount": 2
+    },
+    "9": {
+      "Name": "Junie B. Jones Is Not a Crook",
+      "Amount": 2
+    },
+    "10": {
+      "Name": "Junie B. Jones Is a Party Animal",
+      "Amount": 3
+    },
+    "11": {
+      "Name": "Junie B. Jones Is a Beauty Shop Guy ",
+      "Amount": 2
+    },
+    "12": {
+      "Name": "Junie B. Jones Smells Something Fishy",
+      "Amount": 3
+    },
+    "13": {
+      "Name": "Junie B. Jones Is (almost) a Flower Girl",
+      "Amount": 2
+    },
+    "14": {
+      "Name": "Junie B. Jones and the Mushy Gushy Valentime",
+      "Amount": 2
+    },
+    "15": {
+      "Name": "Junie B. Jones Has a Peep in Her Pocket",
+      "Amount": 2
+    },
+    "16": {
+      "Name": "Junie B. Jones Is Captain Field Day",
+      "Amount": 2
+    },
+    "17": {
+      "Name": "Junie B. Jones Is a Graduation Girl",
+      "Amount": 1
+    },
+    "18": {
+      "Name": "Junie B. Jones: First Grader (at last!)",
+      "Amount": 2
+    },
+    "19": {
+      "Name": "Junie B. Jones: Boss of Lunch",
+      "Amount": 2
+    },
+    "20": {
+      "Name": "Junie B. Jones: Toothless Wonder",
+      "Amount": 2
+    },
+    "21": {
+      "Name": "Junie B. Jones: Cheater Pants",
+      "Amount": 2
+    },
+    "22": {
+      "Name": "Junie B. Jones: One-Man Band",
+      "Amount": 2
+    },
+    "23": {
+      "Name": "Junie B. Jones: Shipwrecked",
+      "Amount": 2
+    },
+    "24": {
+      "Name": "Junie B. Jones: BOO... and I Mean It!",
+      "Amount": 2
+    },
+    "25": {
+      "Name": "Junie B. Jones: Jingle Bells, Batman Smells! (P.S. So Does May.)",
+      "Amount": 1
+    },
+    "26": {
+      "Name": "Junie B. Jones: Aloha-ha-ha!",
+      "Amount": 1
+    },
+    "27": {
+      "Name": "Junie B. Jones: Dumb Bunny",
+      "Amount": 1
+    },
+    "28": {
+      "Name": "Junie B. Jones: Turkeys We Have Loved and Eaten",
+      "Amount": 1
+    }
+  },
+  "MTH": {
+    "Name": "The Magic Tree House",
+    "Step": 15,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24",
+      "25",
+      "26",
+      "27",
+      "28"
+    ],
+    "1": {
+      "Name": "Dinosaurs Before Dark",
+      "Amount": 3
+    },
+    "2": {
+      "Name": "The Knight at Dawn",
+      "Amount": 2
+    },
+    "3": {
+      "Name": "Mummies in the Morning",
+      "Amount": 3
+    },
+    "4": {
+      "Name": "Pirates Past Noon",
+      "Amount": 4
+    },
+    "5": {
+      "Name": "Night of the Ninjas",
+      "Amount": 3
+    },
+    "6": {
+      "Name": "Afternoon on the Amazon",
+      "Amount": 3
+    },
+    "7": {
+      "Name": "Sunset of the Sabertooth",
+      "Amount": 3
+    },
+    "8": {
+      "Name": "Midnight on the Moon",
+      "Amount": 2
+    },
+    "9": {
+      "Name": "Dolphins at Daybreak",
+      "Amount": 3
+    },
+    "10": {
+      "Name": "Ghost Town at Sundown",
+      "Amount": 4
+    },
+    "11": {
+      "Name": "Lions at Lunchtime",
+      "Amount": 4
+    },
+    "12": {
+      "Name": "Polar Bears Past Bedtime",
+      "Amount": 4
+    },
+    "13": {
+      "Name": "Vacation Under the Volcano",
+      "Amount": 3
+    },
+    "14": {
+      "Name": "Day of the Dragon King",
+      "Amount": 3
+    },
+    "15": {
+      "Name": "Viking Ships at Sunrise",
+      "Amount": 3
+    },
+    "16": {
+      "Name": "Hour of the Olympics",
+      "Amount": 4
+    },
+    "17": {
+      "Name": "Tonight on the Titanic",
+      "Amount": 3
+    },
+    "18": {
+      "Name": "Buffalo Befre Breakfast",
+      "Amount": 3
+    },
+    "19": {
+      "Name": "Tigers at Twilight",
+      "Amount": 3
+    },
+    "20": {
+      "Name": "Dingoes at Dinnertime",
+      "Amount": 3
+    },
+    "21": {
+      "Name": "Civil War on Sunday",
+      "Amount": 2
+    },
+    "22": {
+      "Name": "Revolutionary War on Wednesday",
+      "Amount": 2
+    },
+    "23": {
+      "Name": "Twister on Tuesday",
+      "Amount": 3
+    },
+    "24": {
+      "Name": "Earthquake in the Early Morning",
+      "Amount": 3
+    },
+    "25": {
+      "Name": "Stage Fright on a Summer Night",
+      "Amount": 3
+    },
+    "26": {
+      "Name": "Good Morning, Gorillas",
+      "Amount": 2
+    },
+    "27": {
+      "Name": "Thanksgiving on Thursday",
+      "Amount": 4
+    },
+    "28": {
+      "Name": "High Tide in Hawaii"
+    }
+  },
+  "GS": {
+    "Name": "Geronimo Stilton",
+    "Step": 16,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "20",
+      "21",
+      "22",
+      "24"
+    ],
+    "1": {
+      "Name": "Lost Treasure of the Emerald Eye",
+      "Amount": 2
+    },
+    "2": {
+      "Name": "The Curse of the Cheese Pyramid",
+      "Amount": 2
+    },
+    "3": {
+      "Name": "Cat and Mouse in a Haunted House",
+      "Amount": 2
+    },
+    "4": {
+      "Name": "I'm Too Fond of My Fur!",
+      "Amount": 2
+    },
+    "5": {
+      "Name": "Four Mice Deep in the Jungle",
+      "Amount": 2
+    },
+    "6": {
+      "Name": "Paws Off, Cheddarface!",
+      "Amount": 2
+    },
+    "7": {
+      "Name": "Red Pizzas for a Blue Count",
+      "Amount": 2
+    },
+    "8": {
+      "Name": "Attack of the Bandit Cats",
+      "Amount": 2
+    },
+    "9": {
+      "Name": "A Fabmouse Vacation for Geronimo",
+      "Amount": 2
+    },
+    "10": {
+      "Name": "All Because of a Cup of Coffee",
+      "Amount": 2
+    },
+    "11": {
+      "Name": "It's Halloween, You 'Fraidy Mouse!",
+      "Amount": 1
+    },
+    "12": {
+      "Name": "Merry Christmas, Geronimo!",
+      "Amount": 1
+    },
+    "13": {
+      "Name": "The Phantom of the Subway",
+      "Amount": 1
+    },
+    "14": {
+      "Name": "The Temple of the Ruby of Fire",
+      "Amount": 1
+    },
+    "15": {
+      "Name": "The Mona Mousa Code",
+      "Amount": 1
+    },
+    "16": {
+      "Name": "A Cheese-Colored Camper",
+      "Amount": 1
+    },
+    "17": {
+      "Name": "Watch Your Whiskers, Stilton!",
+      "Amount": 1
+    },
+    "18": {
+      "Name": "Shipwreck on the Pirate Islands",
+      "Amount": 1
+    },
+    "20": {
+      "Name": "Surf's Up, Geronimo!",
+      "Amount": 1
+    },
+    "21": {
+      "Name": "The Wild, Wild West",
+      "Amount": 1
+    },
+    "22": {
+      "Name": "The Secret of Cacklefur Castle",
+      "Amount": 1
+    },
+    "24": {
+      "Name": "Field Trip to Niagra Falls",
+      "Amount": 1
+    }
+  },
+  "GF": {
+    "Name": "Garfield",
+    "Step": 17,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+    ],
+    "1": {
+      "Name": "The Wicked Wizard",
+      "Amount": 5
+    },
+    "2": {
+      "Name": "The Teacher Creature",
+      "Amount": 5
+    },
+    "3": {
+      "Name": "The Mysterious Mummy",
+      "Amount": 5
+    },
+    "4": {
+      "Name": "Beast in the Basement",
+      "Amount": 5
+    },
+    "5": {
+      "Name": "The Santa Spy",
+      "Amount": 5
+    }
+  },
+  "FKS": {
+    "Name": "Franny K. Stein",
+    "Step": 18,
+    "Books": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+    ],
+    "1": {
+      "Name": "Lunch Walks Among Us",
+      "Amount": 4
+    },
+    "2": {
+      "Name": "Attack of The 50-Ft. Cupid",
+      "Amount": 4
+    },
+    "3": {
+      "Name": "The Invisible Fran",
+      "Amount": 4
+    },
+    "4": {
+      "Name": "The Fran That Time Forgot",
+      "Amount": 4
+    },
+    "5": {
+      "Name": "Frantastic Voyage",
+      "Amount": 4
+    },
+    "6": {
+      "Name": "The Fran With Four Brains",
+      "Amount": 4
+    },
+    "7": {
+      "Name": "The Frandidate",
+      "Amount": 4
+    }
+  }
 }
